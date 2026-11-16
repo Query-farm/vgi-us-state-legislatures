@@ -10,7 +10,7 @@ dependencies = [
     # [http] adds the HTTP transport (`--http`) used by Docker deploys; [haybarn] is the
     # local engine vgi-python needs to re-apply pushed-down filters (filter_pushdown).
     # SDK bumps go through the template (minor bumps can raise the protocol).
-    "vgi-python[http,haybarn]>=0.51.1,<0.52",
+    "vgi-python[http,haybarn]>=0.52.2,<0.53",
     "platformdirs>=4",
     "pyyaml>=6",
 ]
@@ -22,7 +22,7 @@ vgi-us-statelegs-worker = "us_statelegs_worker.worker:main"
 dev = [
     # The pushdown recipe evaluates predicates locally; a worker that uses filter
     # pushdown must add the `haybarn` extra to its own dependencies.
-    "vgi-python[haybarn]>=0.51.1,<0.52",
+    "vgi-python[haybarn]>=0.52.2,<0.53",
     "pytest>=8.4",
     "mypy>=1.18",
     "ruff>=0.14",

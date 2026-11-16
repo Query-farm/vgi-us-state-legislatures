@@ -30,7 +30,7 @@ from dataclasses import dataclass
 from typing import Annotated, Any, ClassVar, TypeVar
 
 import pyarrow as pa
-from vgi.arguments import Arg
+from vgi.arguments import Arg, Secret
 from vgi.catalog import SecretTypeSpec
 from vgi.invocation import BindResponse
 from vgi.metadata import FunctionExample
@@ -185,8 +185,13 @@ class OpenStatesSource(TableFunctionGenerator[A, PageCursor]):
     PAGED: ClassVar[bool] = True
 
     @classmethod
-    def on_bind(cls, params: BindParams[A]) -> BindResponse:
-        """Declare the output schema (the secret is requested through ``Meta.required_secrets``)."""
+    def on_bind(
+        cls,
+        params: BindParams[A],
+        *,
+        api_key: Annotated[dict[str, Any] | None, Secret(SECRET_TYPE)] = None,
+    ) -> BindResponse:
+        """Declare the output schema; the annotation requests the API-key secret for every subclass."""
         return BindResponse(output_schema=cls.FIXED_SCHEMA)
 
     @classmethod
@@ -331,7 +336,6 @@ class OsJurisdictions(OpenStatesSource[NoArgs]):
 
         name = "os_jurisdictions"
         description = "State jurisdictions tracked by the Open States API, with last bill and people update times"
-        required_secrets = [SECRET_TYPE]
         tags = {
             **object_tags(
                 title="Open States Jurisdictions",
@@ -388,7 +392,6 @@ class OsSessions(OpenStatesSource[SessionArgs]):
 
         name = "os_sessions"
         description = "Legislative sessions of each state from Open States, with bulk CSV/JSON download links"
-        required_secrets = [SECRET_TYPE]
         filter_pushdown = True
         auto_apply_filters = True
         tags = {
@@ -518,7 +521,6 @@ class OsPeople(OpenStatesSource[PeopleArgs]):
 
         name = "os_people"
         description = "Current state legislators from the live Open States API (filter by state, name, district)"
-        required_secrets = [SECRET_TYPE]
         filter_pushdown = True
         auto_apply_filters = True
         tags = {
@@ -760,7 +762,6 @@ class OsBills(OpenStatesSource[BillArgs]):
 
         name = "os_bills"
         description = "State bills from the live Open States API with sponsors and actions, newest update first"
-        required_secrets = [SECRET_TYPE]
         filter_pushdown = True
         auto_apply_filters = True
         tags = {
@@ -869,7 +870,6 @@ class OsVotes(OpenStatesSource[BillArgs]):
 
         name = "os_votes"
         description = "Roll-call votes on state bills from the live Open States API, with individual legislators' votes"
-        required_secrets = [SECRET_TYPE]
         filter_pushdown = True
         auto_apply_filters = True
         tags = {
@@ -996,7 +996,6 @@ class OsCommittees(OpenStatesSource[CommitteeArgs]):
 
         name = "os_committees"
         description = "Committees and their rosters for one state from the live Open States API"
-        required_secrets = [SECRET_TYPE]
         filter_pushdown = True
         auto_apply_filters = True
         tags = {
@@ -1136,7 +1135,6 @@ class OsEvents(OpenStatesSource[EventArgs]):
 
         name = "os_events"
         description = "Committee meetings, hearings and floor sessions for one state from the live Open States API"
-        required_secrets = [SECRET_TYPE]
         filter_pushdown = True
         auto_apply_filters = True
         tags = {
