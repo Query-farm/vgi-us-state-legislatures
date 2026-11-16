@@ -1,38 +1,41 @@
-<!-- managed-by: vgi-starters (edit upstream in shared/README.md.tmpl, then run tools/render.py) -->
 <p align="center">
   <img src="https://query.farm/media-kit/products/vgi/vgi-logo.png" alt="Vector Gateway Interface (VGI)" width="320">
 </p>
 
-<p align="center"><em>A Query.Farm VGI worker for DuckDB, written in Python.</em></p>
+# Query US State Legislators, Elections, Bills and Votes in DuckDB
 
-# VGI UsStatelegs Worker — Python
+> **vgi-us-state-legislatures** · a [Query.Farm](https://query.farm) VGI worker
 
-[![CI](https://github.com/your-org/vgi-us-statelegs/actions/workflows/ci.yml/badge.svg)](https://github.com/your-org/vgi-us-statelegs/actions/workflows/ci.yml)
+[![CI](https://github.com/Query-farm/vgi-us-state-legislatures/actions/workflows/ci.yml/badge.svg)](https://github.com/Query-farm/vgi-us-state-legislatures/actions/workflows/ci.yml)
 [![vgi worker: query.farm](https://query.farm/media-kit/shields/vgi-worker.svg)](https://query.farm)
 
-[VGI](https://query.farm/vgi) lets DuckDB call functions that live in a separate
-process: your code, in any language, exposed as ordinary SQL. This worker adds
-three example functions that you rename and replace with your own:
+The legislatures of the 50 states, the District of Columbia and Puerto Rico as SQL: every current
+and former state legislator Open States tracks, their terms and committee assignments, candidate-level
+state legislative election returns since 1967, Shor-McCarty ideology scores, and (with a free Open
+States API key) live bills, roll-call votes, sessions and hearings. Most of the catalog needs no
+account: open datasets are downloaded on first use and cached.
 
-| Function | Kind | Shows you how to |
-|---|---|---|
-| `greet(name)` / `greet(name, style)` | scalar | vectorize over a column, overload, constrain a constant |
-| `sequence_table(count, step := 1)` | table | stream rows in batches, take named arguments |
-| `fetch_items(base_url, page_size := 100)` | table | page through a REST API, retry, read a secret |
-
-
-## Quick start
-
-**Prerequisites:** Python 3.13+ and [uv](https://docs.astral.sh/uv/) (it runs the SQL
-test runner and the metadata checker).
-
-```bash
-make build
+```sql
+-- How each sitting Nebraska senator voted on a bill, with their district (needs an API key).
+SELECT l.district, l.name, v.option
+FROM us_statelegs.main.os_votes(state := 'NE', session := '109') o, unnest(o.votes) AS u(v)
+JOIN us_statelegs.main.legislators(state := 'NE', current := true) l ON l.person_id = v.person_id
+WHERE o.bill_identifier = 'LB 1'
+ORDER BY l.district::INTEGER;
 ```
 
-Then open DuckDB 2.0 or [Haybarn](https://query.farm/products/haybarn) and attach the
-worker. `LOCATION` is the command DuckDB runs to start it; use an absolute path,
-because a relative one resolves against DuckDB's working directory.
+Identifiers are the standard ones, so results join across functions and with other workers:
+Open States `ocd-person/...` and `ocd-jurisdiction/...` ids, USPS state codes (upper case),
+two-digit state FIPS codes (`VARCHAR`, leading zero kept), and `district` as `VARCHAR` (Vermont and
+New Hampshire name theirs, e.g. `'Chittenden-1'`).
+
+**Chambers.** `chamber` is `'upper'` (state senate), `'lower'` (house, assembly or house of delegates)
+or `'legislature'`. Nebraska's Legislature is unicameral and nonpartisan: its 49 members are
+officially senators but every source here codes them `'legislature'` (Klarner and Shor-McCarty file
+them as a senate; this worker normalises them so they join with Open States). The Council of the
+District of Columbia is the other single-chamber body.
+
+## Quick start
 
 **DuckDB 2.0:**
 
@@ -41,250 +44,144 @@ SET allow_extension_repositories = 'allowed';
 CREATE EXTENSION REPOSITORY IF NOT EXISTS query_farm WITH PREFIX 'https://duckdb-extensions.query.farm';
 INSTALL vgi FROM query_farm;
 LOAD vgi FROM query_farm;
-ATTACH 'us_statelegs' (TYPE vgi, LOCATION '/abs/path/to/vgi-us-statelegs/.venv/bin/vgi-us-statelegs-worker');
+
+ATTACH 'us_statelegs' (TYPE vgi,
+  LOCATION 'uvx --from git+https://github.com/Query-farm/vgi-us-state-legislatures@v0.1.0 vgi-us-statelegs-worker');
+
+SELECT chamber, party, count(*) AS members
+FROM us_statelegs.main.legislators(state := 'NC', current := true)
+GROUP BY ALL ORDER BY chamber, members DESC;
 ```
 
-**Haybarn 2.0** (`uvx haybarn-cli`):
+**Haybarn 2.0** (`uvx haybarn-cli`): use `INSTALL vgi FROM community; LOAD vgi;` and the same `ATTACH`.
+
+**From a checkout:** run `make build`, then use
+`LOCATION '/abs/path/to/vgi-us-state-legislatures/.venv/bin/vgi-us-statelegs-worker'`.
+
+### Open States API key
+
+The `os_*` functions call the [Open States API v3](https://docs.openstates.org/api-v3/) (run by
+Plural). Register free at <https://open.pluralpolicy.com/accounts/signup/>, then:
 
 ```sql
-INSTALL vgi FROM community;
-LOAD vgi;
-ATTACH 'us_statelegs' (TYPE vgi, LOCATION '/abs/path/to/vgi-us-statelegs/.venv/bin/vgi-us-statelegs-worker');
+CREATE SECRET (TYPE openstates, API_KEY 'your-key');
+SELECT identifier, title, latest_action_date
+FROM us_statelegs.main.os_bills(state := 'NE', session := '109')
+ORDER BY latest_action_date DESC LIMIT 10;
 ```
 
-Now call the functions:
+Without the secret, an `os_*` call fails with a message naming `TYPE openstates`. The key is read from
+the secret on every request and never stored in the scan cursor. The free tier is rate limited, so
+requests are spaced by `OPENSTATES_MIN_INTERVAL` seconds (default 1) and HTTP 429 is retried honouring
+`Retry-After`.
 
-```sql
-SELECT us_statelegs.main.greet('Ada');                         -- Hi, Ada!
-SELECT us_statelegs.main.greet('Ada', 'formal');               -- Good day, Ada.
-SELECT * FROM us_statelegs.main.sequence_table(5, step := 2) ORDER BY n;
-```
+## Functions
 
-`fetch_items` pages through a REST API. Try it against the public demo API (25 fixed items):
+All functions live in `us_statelegs.main`.
 
-```sql
-SELECT category, count(*) AS items, round(avg(price), 2) AS avg_price
-FROM us_statelegs.main.fetch_items('https://vgi-starter-api.query-farm.services/v1')
-GROUP BY category ORDER BY category;
-```
+| Function | Source | Key? | What it returns |
+|---|---|---|---|
+| `states` (table) | bundled | no | The 52 legislatures: USPS, FIPS, Open States jurisdiction id, chamber codes and names, unicameral flag |
+| `legislators(state := , current := )` | Open States people repo | no | One row per current or former legislator: ocd-person id, chamber/district/party of latest seat, contact details, party history, other ids |
+| `legislator_roles(state := )` | Open States people repo | no | One row per seat held: chamber, district, start/end dates, end reason |
+| `committees(state := )` | Open States people repo | no | Current committees: chamber, classification, parent, roster size, chair |
+| `committee_members(state := )` | Open States people repo | no | One row per committee roster entry, with the member's ocd-person id |
+| `election_returns(state := , first_year := , last_year := , chamber := )` | Klarner SLERs | no | Candidate-level returns 1967-2016: district, election type, candidate, party, incumbency, votes, outcome |
+| `legislator_ideology(state := , first_year := , last_year := )` | Shor-McCarty | no | NP-score per legislator, one row per year served per chamber, 1993-2022 |
+| `chamber_ideology(state := , first_year := , last_year := )` | Shor-McCarty | no | Chamber and party medians and polarization per state-chamber-year |
+| `cache_info()` | local cache | no | Each downloaded dataset: licence, URL, cached?, size, SHA-256, download time (never downloads) |
+| `refresh_cache(dataset)` | upstream | no | Download one dataset again now |
+| `os_jurisdictions()` | Open States API | yes | Tracked states and when their bills/people were last updated |
+| `os_sessions(state := )` | Open States API | yes | Legislative sessions (identifiers for `session :=`), dates, bulk-archive links |
+| `os_people(state := , name := , district := , chamber := )` | Open States API | yes | Current legislators, live |
+| `os_bills(state := , session := , chamber := , classification := , subject := , updated_since := , q := , sponsor := )` | Open States API | yes | Bills with sponsors and actions, newest update first |
+| `os_votes(...same as os_bills)` | Open States API | yes | One row per roll-call vote with counts and each legislator's vote |
+| `os_committees(state, chamber := , classification := )` | Open States API | yes | Committees with rosters, live |
+| `os_events(state, after_date := , before_date := )` | Open States API | yes | Hearings, committee meetings, floor sessions |
 
-If an older cached extension misbehaves, refresh it with `FORCE INSTALL vgi FROM query_farm;`
-(DuckDB) or `FORCE INSTALL vgi FROM community;` (Haybarn).
+`state` accepts a USPS code in any case or a two-digit FIPS code. Notes:
 
-## Using it in a pipeline
+- **Election returns.** Some 2013-2016 returns are split by county and fusion candidates have one row
+  per party line: `SUM(votes)` per `candidate_id` and contest before computing vote shares. `election_type
+  = 'g'` is a regular general election; the `general` column also covers specials held with it.
+- **Ideology.** `np_score` is constant per legislator; count people with `count(DISTINCT legislator_id)`.
+- **Former legislators** in the people data are mostly those tracked since about 2010; Open States
+  start dates are often missing for older terms.
 
-Worker functions compose with everything else in DuckDB:
+## What pushes down
 
-```sql
--- Materialize an API into a local table.
-CREATE TABLE items AS SELECT * FROM us_statelegs.main.fetch_items('https://vgi-starter-api.query-farm.services/v1');
-
--- Join it with local files.
-SELECT i.name, i.price, s.units
-FROM items i JOIN 'sales.parquet' s ON s.item_id = i.id;
-
--- Call a scalar per row of another table.
-SELECT customer, us_statelegs.main.greet(customer, 'formal') FROM read_csv('customers.csv');
-```
-
-## Project layout
-
-```
-src/us_statelegs_worker/
-  worker.py        # assembles the catalog; add new functions to FUNCTIONS
-  meta.py          # catalog/schema metadata + helpers (object_tags, column)
-  greet.py         # scalar example (overloads, ConstParam choices)
-  sequence.py      # table function example (named args, streaming state)
-  fetch_items.py   # REST API table function (pagination, retries, secrets)
-tests/             # pytest unit tests (in-process client)
-test/sql/          # sqllogictest files run through DuckDB
-test/mock_api/     # offline mock of the REST API used by tests
-examples/          # recipes: pushdown, caching, catalog tables, aggregates, COPY …
-ci/                # integration harness used by `make test-sql` and CI
-scripts/           # vgi_template.py (init / template-diff)
-vgi-agent-tests.yaml  # private graders for the agent test tasks
-```
-
-## Adding a function
-
-1. Create `src/us_statelegs_worker/<name>.py`. Copy the closest example: `greet.py` for a
-   scalar, `sequence.py` for a generator, `fetch_items.py` for an API.
-2. Declare arguments with `Annotated[..., Param(...)]`/`ConstParam(...)` (scalars) or a
-   frozen dataclass of `Annotated[..., Arg(...)]` (table functions). Use `Arg(0, ...)`
-   for positional arguments and `Arg("name", default=...)` for named ones.
-3. Give the class a `class Meta` with `name`, `description`, `tags=object_tags(...)`
-   and `examples`.
-4. Add the class to `FUNCTIONS` in `src/us_statelegs_worker/worker.py`.
-
-**Which kind of function?**
-
-| You want to… | Use |
+| Function | Pushed to the source |
 |---|---|
-| compute one value per input row | a **scalar** function |
-| return a set of rows from arguments (an API, a file, a generator) | a **table** function |
-| transform or aggregate the rows of a query | a **table in-out** function or an **aggregate** |
-| expose a fixed dataset by name (`SELECT * FROM us_statelegs.main.t`) | a **catalog table** |
-| write data out to a file or service | `COPY … TO` with a copy function |
-| accept `INSERT` / `UPDATE` / `DELETE` | a catalog table with insert/update/delete functions |
+| keyless functions | `state` argument and `WHERE state = …` / `IN (…)`: only those states' files are parsed |
+| `election_returns`, `legislator_ideology`, `chamber_ideology` | also `first_year`/`last_year` and `WHERE year >= / <= / =`; `chamber` for election returns (Parquet row-group filters) |
+| `os_people` | `state`, `name`, `district`, `chamber` (also `WHERE district = …`, `WHERE chamber = …`) |
+| `os_bills`, `os_votes` | `state`, `session`, `chamber` (argument or `WHERE … =`), `classification`, `subject`, `q`, `sponsor`, `updated_since` (or `WHERE updated_at >= …`) |
+| `os_committees`, `os_events`, `os_sessions` | `state`; `chamber`/`classification`; `after_date`/`before_date` |
 
-The [examples/](examples/) folder has a recipe for most of these. Writable tables have no
-recipe:
+Every pushed predicate is also re-applied to the rows, so results are exact either way.
 
-A writable table is a catalog `Table` that names a table in-out function per operation in
-`insert_function`, `update_function` and `delete_function`, with the richest result each one
-produces in `write_result_modes`. The helpers in `vgi.write_results` (`write_options`,
-`write_result_schema`, `write_result_batch`, `row_id_field`) read DuckDB's `write_options`
-argument and build the result. UPDATE and DELETE need a scan function that emits
-`row_id_field()` and declares projection pushdown. Transactions: override `attach_supports_transactions`
-and `catalog_transaction_begin` / `_commit` / `_rollback` on the catalog. Since VGI protocol 3.3
-a table's scan and write functions are table-only: hidden from `duckdb_functions()` and not
-callable from SQL. Set `expose_scan=True` on the table to keep the scan callable as an ordinary
-table function too (write functions never are). See
-[Writable tables](https://github.com/Query-farm/vgi-python/blob/main/docs/catalog-interface.md#writable-tables)
-in the vgi-python docs.
+## Downloads and the cache
 
-## Secrets and configuration
+Nothing is downloaded at import or `ATTACH` time. Each dataset is fetched the first time a function
+needs it, verified (tarball layout or the expected tab-file header) and kept in the per-user cache
+directory (`~/Library/Caches/vgi-us-state-legislatures` on macOS, `~/.cache/vgi-us-state-legislatures`
+on Linux):
 
-`fetch_items` shows the recommended pattern. A bearer token comes from a DuckDB secret
-when one exists, and from an environment variable otherwise:
+| Dataset | Size | Refresh |
+|---|---|---|
+| Open States people repository tarball | ~5 MB | re-checked (ETag) once older than `MAX_AGE_DAYS` (7) |
+| Klarner election returns (tab) | ~110 MB, plus a ~10 MB Parquet copy built once | static dataset |
+| Shor-McCarty individual / aggregate (tab) | ~7 MB / ~0.5 MB | static dataset |
 
-```sql
-CREATE SECRET (TYPE us_statelegs_api, TOKEN 'your-token');      -- per session, never logged
-```
+ATTACH options: `CACHE_DIR`, `MAX_AGE_DAYS`, `OFFLINE` (never download; use the cache only),
+`OPENSTATES_API_URL`, `OPENSTATES_MIN_INTERVAL`, `PEOPLE_ARCHIVE_URL`, `KLARNER_URL`,
+`SHOR_MCCARTY_URL`, `SHOR_MCCARTY_AGGREGATE_URL` (point these at mirrors; the tests point them at
+fixtures). `cache_info()` reports what is cached; `refresh_cache('people')` forces a download.
 
-```bash
-US_STATELEGS_API_TOKEN=your-token make run-http                # for servers and containers
-```
-
-Try it: the demo API's `/v1/auth` endpoint needs the published token `demo-token`.
-
-```sql
-SELECT count(*) FROM us_statelegs.main.fetch_items('https://vgi-starter-api.query-farm.services/v1/auth');   -- fails: HTTP 401
-CREATE SECRET (TYPE us_statelegs_api, TOKEN 'demo-token');
-SELECT count(*) FROM us_statelegs.main.fetch_items('https://vgi-starter-api.query-farm.services/v1/auth');   -- 25
-```
-
-Never bake credentials into the image or the source. If a function can't run without
-real credentials, its examples can't execute in CI either. Set `execute: false` on the
-metadata check for that worker (see `.github/workflows/ci.yml`), and add
-`LINT_ARGS ?= --no-execute` to the Makefile so local runs match.
+**Bills and votes without a key.** Open States publishes per-session bill/vote CSV and JSON archives,
+but the download links are shown only to logged-in users of open.pluralpolicy.com, so this worker
+does not fetch them. `os_sessions()` returns the archive links the API reports.
 
 ## Testing
 
 ```bash
-make test-unit                 # fast Python unit tests
-make test-sql                  # test/sql/*.test through DuckDB (stdio)
-make test-sql TRANSPORT=http   # …over HTTP (also: launch)
-make check                     # everything CI runs
+make check        # ruff, mypy, pydoclint, pytest, SQL tests over stdio/launch/http, vgi-lint
+make test-unit    # pytest only
+make test-sql     # SQL tests through DuckDB (Haybarn's sqllogictest runner)
 ```
 
-`test/sql/*.test` files are [sqllogictest](https://duckdb.org/docs/stable/dev/sqllogictest/intro)
-scripts. `ci/run-integration.sh` runs them against your worker and fails on any
-unexpected skip, so a broken transport can't hide behind a green run.
-`fetch_items` is tested against `test/mock_api/server.py` so tests are fast and
-offline.
+Tests run offline. `test/mock_api/server.py` serves `test/fixtures`: a subset of the real Open States
+people repository (Nebraska and DC), real Klarner rows (NE 2014/2016, VT 2016, WI 2016 house), real
+rows of the CC0 April 2023 Shor-McCarty release (NE, VT), and Open States API responses (people built
+from the real people rows; bills, votes, committees and events synthetic, shaped after the API's
+OpenAPI schema). `scripts/build_fixtures.py` rebuilds the dataset subsets from full downloads. See
+[DATA-SOURCES.md](DATA-SOURCES.md).
 
-**Testing against real data:** put live tests in their own `.test` file that starts with
-`require-env US_STATELEGS_LIVE`. They run only when that variable is set. Add the skip reason
-to `EXPECTED_SKIP_REASONS` in CI.
+The CI metadata lint runs with `execute: false` because the `os_*` examples need an Open States API key.
 
-## Metadata and the quality score
+## Data terms
 
-DuckDB, agents and documentation tools discover your functions through their metadata:
-titles, descriptions, argument docs, examples and keywords.
-[vgi-lint](https://github.com/Query-farm/vgi-lint-check) checks it, and CI runs it on
-every push. Its settings live in `vgi-lint.toml`, which `make lint-explain`,
-`vgi-lint lint`, and CI all read. This template scores 100/100 with no findings.
+The code licence below does not cover the data. Upstream terms:
 
-```bash
-make lint-explain                              # findings, each with its fix
-make lint-explain LINT_ARGS="--format agent"   # the same, grouped for coding agents
-make lint-ai                                   # optional: an agent must solve vgi-agent-tests.yaml
-```
-
-Each report also states an **assurance level**: how much was actually verified.
-
-| Level | Reached when | Here |
-|---|---|---|
-| L1 structural | the static metadata is clean | workers that need real credentials (`execute: false` in CI) |
-| L2 behavioural | the examples also run and return what they claim | **the CI gate** |
-| L3 semantic | an agent solves the worker's own test tasks, and the docs are reviewed | `make lint-ai`, before publishing |
-
-- **How strict.** Your copy fails on warnings (`fail_on = "warning"` in `vgi-lint.toml`).
-  Raise it to `"info"` before you publish the worker for others.
-- **The linter isn't pinned.** It tracks the current quality bar, so a new rule can flag
-  metadata that passed yesterday. Fix it, or waive the finding.
-- **Waivers.** If a finding is genuinely wrong for your worker, waive it in
-  `vgi-lint.toml` with a `kind` and a `reason`.
-- **Existing workers.** If you're adding this gate to a worker that already has
-  findings, record them with `vgi-lint lint --baseline vgi-lint-baseline --update-baseline`
-  and set `baseline` in `vgi-lint.toml`. After that, only new findings fail.
-
-Metadata lives in `src/us_statelegs_worker/meta.py` and each function's `class Meta`.
-
-## Logging and debugging
-
-stdout carries the Arrow protocol, so **never print to stdout**. Log to stderr instead.
-Use the standard `logging` module (the SDK routes it to stderr); `--debug` or `--log-level DEBUG` turns it up.
-
-- Under DuckDB (stdio/launch), worker stderr shows up in DuckDB's error messages and
-  terminal.
-- In Docker it goes to `docker logs`.
-- `make debug` runs one query against the worker with debug logging on.
-
-## Deploying
-
-The same binary serves stdio (DuckDB starts it locally) or HTTP (you host it):
-
-```bash
-docker build -t weather-worker .
-docker run -p 8000:8000 -e US_STATELEGS_API_TOKEN=... weather-worker   # health: GET /health
-```
-
-```sql
-ATTACH 'us_statelegs' (TYPE vgi, LOCATION 'https://workers.example.com/us_statelegs');
-```
-
-Put hosted workers behind TLS and authentication. See
-[authentication](https://query.farm/vgi/authentication) for bearer tokens and JWTs, and
-[distributing a worker](https://query.farm/vgi/distributing-a-worker) for packaging.
-Pass secrets with `-e` or your platform's secret manager.
-
-## Releasing
-
-Push a tag like `v0.1.0`. The release workflow builds the wheel and sdist, attaches them to the GitHub release, and (if you set the repository variable `PYPI_PUBLISH=true` and configure PyPI Trusted Publishing) publishes to PyPI, so users can run `uvx vgi-us-statelegs-worker`. Without PyPI, users install straight from the repo with `uvx --from git+https://github.com/your-org/vgi-us-statelegs@v0.1.0 vgi-us-statelegs-worker`. Every artifact is signed with cosign and
-carries SLSA build provenance. `ci/check-version.sh` makes sure the tag matches the
-version in `pyproject.toml`.
-
-## Using with coding agents
-
-[AGENTS.md](AGENTS.md) is written for AI coding agents (Claude Code reads it via
-`CLAUDE.md`; Codex, Cursor and others read it directly). It covers the commands, the
-recipe for adding a function, the metadata checklist and the sharp edges. A good first
-prompt:
-
-> Read AGENTS.md. Replace `fetch_items` with `forecast(lat DOUBLE, lon DOUBLE)` that calls
-> the Open-Meteo API. Include full metadata, a mock-server test and a `US_STATELEGS_LIVE` test.
-> You're done when `make check` passes.
-
-## Keeping up with the template
-
-`make template-diff` shows what changed upstream (CI, docs, examples) since your copy was
-made. Your copy records its template version in `.vgi-us_statelegs.json`.
-
-## Learn more
-
-- [What is VGI?](https://query.farm/vgi) · [Getting started](https://query.farm/vgi/getting-started) · [Building a worker](https://query.farm/vgi/building-a-worker)
-- [Python SDK docs](https://query.farm/vgi/docs/python/): [scalar tutorial](https://query.farm/vgi/docs/python/tutorial/scalar/), [table tutorial](https://query.farm/vgi/docs/python/tutorial/table/)
-- [Distributing a worker](https://query.farm/vgi/distributing-a-worker) · [Choosing a language](https://query.farm/vgi/languages) · [llms.txt](https://query.farm/vgi/llms.txt)
-- SDK source: [vgi-python](https://github.com/Query-farm/vgi-python) · RPC layer: [https://vgi-rpc-python.query.farm](https://vgi-rpc-python.query.farm)
+- **Open States people data** ([openstates/people](https://github.com/openstates/people)): CC0 1.0.
+  Open States bulk data are public domain unless noted; attribution to Open States/Plural is appreciated.
+- **Open States API**: use is governed by the Open States / Plural terms of service
+  (<https://open.pluralpolicy.com/tos/>) and your API key.
+- **Klarner, State Legislative Election Returns, 1967-2016** (<https://doi.org/10.7910/DVN/3WZFK9>): CC0 1.0.
+  Please cite Klarner (2018).
+- **Shor-McCarty ideology data, January 2025 update** (individual <https://doi.org/10.7910/DVN/SGOQ7G>,
+  aggregate <https://doi.org/10.7910/DVN/T53FFK>): **CC BY-NC-SA 4.0 — non-commercial, share-alike**.
+  This worker downloads them at runtime on your behalf and never redistributes them; your use must
+  comply with that licence. Cite Shor & McCarty (2011) and Shor & McCarty (2022). The test fixtures
+  instead use the April 2023 release (CC0 1.0).
 
 ## Support
 
-Open an issue on this repository. For VGI itself, see [query.farm](https://query.farm).
+Open an issue at <https://github.com/Query-farm/vgi-us-state-legislatures/issues>.
 
-## Authorship & license
+## Authorship & License
 
-The starter template is written by [Query.Farm](https://query.farm) and released under
-the [BSD Zero Clause License](LICENSE) (0BSD). Use it for anything, with no attribution
-required. Replace this section with your own license once the code is yours.
+Copyright 2026 Query Farm LLC - https://query.farm
+
+Written by [Query.Farm](https://query.farm) and released under the
+[BSD Zero Clause License](LICENSE) (0BSD).

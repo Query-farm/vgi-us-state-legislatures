@@ -1,0 +1,878 @@
+{
+ "results": [
+  {
+   "id": "ocd-person/3da787e9-f6ed-4069-bd74-58ec7c015efb",
+   "name": "Beau Ballard",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 21,
+    "division_id": "ocd-division/country:us/state:ne/sldu:21"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Beau",
+   "family_name": "Ballard",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist21/highres/dist21.jpg",
+   "email": "beau.ballard@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1994-05-05",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/3da787e9-f6ed-4069-bd74-58ec7c015efb/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1101, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2673",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=21",
+     "note": ""
+    },
+    {
+     "url": "https://www.beauballard.com/",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/471fb0d6-b798-4c0c-bac1-021db8b68801",
+   "name": "Mike Moser",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 22,
+    "division_id": "ocd-division/country:us/state:ne/sldu:22"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Mike",
+   "family_name": "Moser",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist22/highres/dist22.jpg",
+   "email": "mmoser@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1951-09-18",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/471fb0d6-b798-4c0c-bac1-021db8b68801/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1116, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2715",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=22",
+     "note": ""
+    },
+    {
+     "url": "https://news.legislature.ne.gov/dist22",
+     "note": ""
+    },
+    {
+     "url": "https://news.legislature.ne.gov/dist22/",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/356c7606-4eaa-4494-83a5-68dbaf3e77f6",
+   "name": "Jared Storm",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 23,
+    "division_id": "ocd-division/country:us/state:ne/sldu:23"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Jared",
+   "family_name": "Storm",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist23/highres/dist23.jpg",
+   "email": "jstorm@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1971-03-27",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/356c7606-4eaa-4494-83a5-68dbaf3e77f6/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1124, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2719",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=23",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/967bf436-18bf-444e-bd2f-d83e5ec78995",
+   "name": "Jana Hughes",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 24,
+    "division_id": "ocd-division/country:us/state:ne/sldu:24"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Jana",
+   "family_name": "Hughes",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist24/highres/dist24.jpg",
+   "email": "jhughes@leg.ne.gov",
+   "gender": "Female",
+   "birth_date": "1991-08-07",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/967bf436-18bf-444e-bd2f-d83e5ec78995/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1212, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2756",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=24",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/ecf3913e-8e18-4aec-8991-12549df820cd",
+   "name": "Carolyn Bosn",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 25,
+    "division_id": "ocd-division/country:us/state:ne/sldu:25"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Carolyn",
+   "family_name": "Bosn",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist25/highres/dist25.jpg",
+   "email": "cbosn@leg.ne.gov",
+   "gender": "Female",
+   "birth_date": "1982-10-05",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/ecf3913e-8e18-4aec-8991-12549df820cd/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1103, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2731",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=25",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/14507b1b-007f-4f87-adbb-a5e4669efba8",
+   "name": "George Dungan",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 26,
+    "division_id": "ocd-division/country:us/state:ne/sldu:26"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "George",
+   "family_name": "Dungan",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist26/highres/dist26.jpg",
+   "email": "george.dungan@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1988-08-12",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/14507b1b-007f-4f87-adbb-a5e4669efba8/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1016, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2610",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=26",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/dda3cdbe-5e52-439e-ac68-02588b6d7cab",
+   "name": "Jason Prokop",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 27,
+    "division_id": "ocd-division/country:us/state:ne/sldu:27"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Jason",
+   "family_name": "Prokop",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist27/highres/dist27.jpg",
+   "email": "jprokop@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1982-01-24",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/dda3cdbe-5e52-439e-ac68-02588b6d7cab/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1118, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2632",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://jasonprokop.com",
+     "note": ""
+    },
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=27",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/0f176ff3-ed75-4605-9e8b-5bb5a3d3c4cf",
+   "name": "Jane Raybould",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 28,
+    "division_id": "ocd-division/country:us/state:ne/sldu:28"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Jane",
+   "family_name": "Raybould",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist28/highres/dist28.jpg",
+   "email": "jane.raybould@leg.ne.gov",
+   "gender": "Female",
+   "birth_date": "1958-11-01",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/0f176ff3-ed75-4605-9e8b-5bb5a3d3c4cf/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1309, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2633",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=28",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/5e6ca662-d4e3-405b-a060-d0150546eede",
+   "name": "Eliot Bostar",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 29,
+    "division_id": "ocd-division/country:us/state:ne/sldu:29"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Eliot",
+   "family_name": "Bostar",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist29/highres/dist29.jpg",
+   "email": "eliot.bostar@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1987-05-05",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/5e6ca662-d4e3-405b-a060-d0150546eede/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1012, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2734",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=29",
+     "note": ""
+    },
+    {
+     "url": "https://news.legislature.ne.gov/dist29/",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/4a8d555a-4bba-4f76-a3e1-88eee6030413",
+   "name": "Myron Dorn",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 30,
+    "division_id": "ocd-division/country:us/state:ne/sldu:30"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Myron",
+   "family_name": "Dorn",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist30/highres/dist30.jpg",
+   "email": "myron.dorn@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1954-10-23",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/4a8d555a-4bba-4f76-a3e1-88eee6030413/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1208, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2620",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=30",
+     "note": ""
+    },
+    {
+     "url": "https://news.legislature.ne.gov/dist30",
+     "note": ""
+    },
+    {
+     "url": "https://news.legislature.ne.gov/dist30/",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/9d6fd408-5497-4038-9716-c1f487e348d2",
+   "name": "Kathleen Kauth",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 31,
+    "division_id": "ocd-division/country:us/state:ne/sldu:31"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Kathleen",
+   "family_name": "Kauth",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist31/highres/dist31.jpg",
+   "email": "kathleen.kauth@leg.ne.gov",
+   "gender": "Female",
+   "birth_date": "1970-02-03",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/9d6fd408-5497-4038-9716-c1f487e348d2/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1317, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2327",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=31",
+     "note": ""
+    },
+    {
+     "url": "https://www.nebraskalegislature.gov/senators/landing-pages/index.php?District=31",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/37ed5b35-3aea-40a2-95ed-ecc5120fbe82",
+   "name": "Tom Brandt",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 32,
+    "division_id": "ocd-division/country:us/state:ne/sldu:32"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Tom",
+   "family_name": "Brandt",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist32/highres/dist32.jpg",
+   "email": "tom.brandt@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1959-12-01",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/37ed5b35-3aea-40a2-95ed-ecc5120fbe82/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1210, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2711",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=32",
+     "note": ""
+    },
+    {
+     "url": "https://news.legislature.ne.gov/dist32",
+     "note": ""
+    },
+    {
+     "url": "https://news.legislature.ne.gov/dist32/",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/40eb4961-5467-4d1b-af44-59a2e4de6fae",
+   "name": "Dan Lonowski",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 33,
+    "division_id": "ocd-division/country:us/state:ne/sldu:33"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Dan",
+   "family_name": "Lonowski",
+   "image": "https://storage.googleapis.com/enview-dev-public-general/legislative-people-photos/167026.jpg",
+   "email": "dan.lonowski@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1962-06-27",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/40eb4961-5467-4d1b-af44-59a2e4de6fae/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1017, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2712",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=33",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/2ad42fad-ae37-44a6-8933-0a942f7a85f7",
+   "name": "Loren Lippincott",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 34,
+    "division_id": "ocd-division/country:us/state:ne/sldu:34"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Loren",
+   "family_name": "Lippincott",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist34/highres/dist34.jpg",
+   "email": "loren.lippincott@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1955-03-20",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/2ad42fad-ae37-44a6-8933-0a942f7a85f7/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1018, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2630",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=34",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/d3b8ad26-4cf1-4abf-ae4e-0f7a65f92fe6",
+   "name": "Dan Quick",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 35,
+    "division_id": "ocd-division/country:us/state:ne/sldu:35"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Dan",
+   "family_name": "Quick",
+   "image": "http://www.nebraskalegislature.gov/media/images/blogs/dist35.jpg",
+   "email": "dan.quick@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1957-12-29",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/d3b8ad26-4cf1-4abf-ae4e-0f7a65f92fe6/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 2004, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2617",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=35",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/62ccba1d-4200-41c7-a051-21fa421a206a",
+   "name": "Rick Holdcroft",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 36,
+    "division_id": "ocd-division/country:us/state:ne/sldu:36"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Rick",
+   "family_name": "Holdcroft",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist36/highres/dist36.jpg",
+   "email": "rick.holdcroft@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1954-01-08",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/62ccba1d-4200-41c7-a051-21fa421a206a/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1406, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2642",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=36",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/4bfe5183-1afc-42fa-92c1-7ffe5cbb1080",
+   "name": "Stan Clouse",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 37,
+    "division_id": "ocd-division/country:us/state:ne/sldu:37"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Stan",
+   "family_name": "Clouse",
+   "image": "https://storage.googleapis.com/enview-dev-public-general/legislative-people-photos/167022.jpg",
+   "email": "stan.clouse@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/4bfe5183-1afc-42fa-92c1-7ffe5cbb1080/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1206, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2726",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=37",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/25c29fce-5de4-46cd-97f0-887033d446ce",
+   "name": "Dave Murman",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 38,
+    "division_id": "ocd-division/country:us/state:ne/sldu:38"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Dave",
+   "family_name": "Murman",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist38/highres/dist38.jpg",
+   "email": "dave.murman@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1953-06-30",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/25c29fce-5de4-46cd-97f0-887033d446ce/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1107, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2732",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=38",
+     "note": ""
+    },
+    {
+     "url": "https://news.legislature.ne.gov/dist38",
+     "note": ""
+    },
+    {
+     "url": "https://news.legislature.ne.gov/dist38/",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/7093e661-0dbc-4c75-91e0-09a3e171caf1",
+   "name": "Tony Sorrentino",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 39,
+    "division_id": "ocd-division/country:us/state:ne/sldu:39"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Tony",
+   "family_name": "Sorrentino",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist39/highres/dist39.jpg",
+   "email": "tony.sorrentino@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1954-07-26",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/7093e661-0dbc-4c75-91e0-09a3e171caf1/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1522, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2885",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=39",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/01d5ca17-53a1-463a-b2f6-74fe24833c0f",
+   "name": "Barry DeKay",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 40,
+    "division_id": "ocd-division/country:us/state:ne/sldu:40"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Barry",
+   "family_name": "DeKay",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist40/highres/dist40.jpg",
+   "email": "barry.dekay@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1959-05-29",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/01d5ca17-53a1-463a-b2f6-74fe24833c0f/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1022, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2801",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=40",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "pagination": {
+  "per_page": 20,
+  "page": 2,
+  "max_page": 3,
+  "total_items": 49
+ }
+}

@@ -1,0 +1,898 @@
+{
+ "results": [
+  {
+   "id": "ocd-person/cc0182c9-3cfe-46b1-8fd2-03e90385c6d5",
+   "name": "Bob Hallstrom",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 1,
+    "division_id": "ocd-division/country:us/state:ne/sldu:1"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Bob",
+   "family_name": "Hallstrom",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist01/highres/dist01.jpg",
+   "email": "bhallstrom@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1955-12-02",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/cc0182c9-3cfe-46b1-8fd2-03e90385c6d5/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1404, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2733",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=1",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/809c0698-2669-426a-819a-275a0773ff84",
+   "name": "Rob Clements",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 2,
+    "division_id": "ocd-division/country:us/state:ne/sldu:2"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Rob",
+   "family_name": "Clements",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist02/highres/dist02.jpg",
+   "email": "robert.clements@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1950-12-11",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/809c0698-2669-426a-819a-275a0773ff84/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1004, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2613",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=2",
+     "note": ""
+    },
+    {
+     "url": "https://news.legislature.ne.gov/dist02",
+     "note": ""
+    },
+    {
+     "url": "https://news.legislature.ne.gov/dist02/",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/1e43a5b4-e63c-434a-977c-592174c2c635",
+   "name": "Victor Rountree",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 3,
+    "division_id": "ocd-division/country:us/state:ne/sldu:3"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Victor",
+   "family_name": "Rountree",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist03/highres/dist03.jpg",
+   "email": "victor.rountree@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1959-06-16",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/1e43a5b4-e63c-434a-977c-592174c2c635/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1000, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2627",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=3",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/63d2956a-a0be-40db-a0e3-6c32743951ab",
+   "name": "Brad von Gillern",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 4,
+    "division_id": "ocd-division/country:us/state:ne/sldu:4"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Brad",
+   "family_name": "von Gillern",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist04/highres/dist04.jpg",
+   "email": "brad.vongillern@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1960-07-13",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/63d2956a-a0be-40db-a0e3-6c32743951ab/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1315, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2621",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=4",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/e586486b-002b-4dfb-8eec-a209c915dc95",
+   "name": "Margo Juarez",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 5,
+    "division_id": "ocd-division/country:us/state:ne/sldu:5"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Margo",
+   "family_name": "Juarez",
+   "image": "https://storage.googleapis.com/enview-dev-public-general/legislative-people-photos/167027.jpg",
+   "email": "mjuarez@leg.ne.gov",
+   "gender": "Female",
+   "birth_date": "1958-04-30",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/e586486b-002b-4dfb-8eec-a209c915dc95/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1528, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2710",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=5",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/fd6e1947-c274-4ff5-b2ee-5e5a79d6a729",
+   "name": "Machaela Cavanaugh",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 6,
+    "division_id": "ocd-division/country:us/state:ne/sldu:6"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Machaela",
+   "family_name": "Cavanaugh",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist06/highres/dist06.jpg",
+   "email": "machaela.cavanaugh@leg.ne.gov",
+   "gender": "Female",
+   "birth_date": "1979-01-17",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/fd6e1947-c274-4ff5-b2ee-5e5a79d6a729/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 2010, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2714",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=6",
+     "note": ""
+    },
+    {
+     "url": "https://news.legislature.ne.gov/dist06",
+     "note": ""
+    },
+    {
+     "url": "https://news.legislature.ne.gov/dist06/",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/54fe68ba-6857-483f-b2ae-ba3233a548c4",
+   "name": "Dunixi Guereca",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 7,
+    "division_id": "ocd-division/country:us/state:ne/sldu:7"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Dunixi",
+   "family_name": "Guereca",
+   "image": "https://storage.googleapis.com/enview-dev-public-general/legislative-people-photos/161473.jpg",
+   "email": "dguereca@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/54fe68ba-6857-483f-b2ae-ba3233a548c4/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1523, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2721",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=7",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/1b988941-ec1a-4f87-b17a-51fb0309dea0",
+   "name": "Megan Hunt",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 8,
+    "division_id": "ocd-division/country:us/state:ne/sldu:8"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Megan",
+   "family_name": "Hunt",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist08/highres/dist08.jpg",
+   "email": "megan.hunt@leg.ne.gov",
+   "gender": "Female",
+   "birth_date": "1986-05-09",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/1b988941-ec1a-4f87-b17a-51fb0309dea0/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 2107, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2722",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=8",
+     "note": ""
+    },
+    {
+     "url": "https://news.legislature.ne.gov/dist08",
+     "note": ""
+    },
+    {
+     "url": "https://news.legislature.ne.gov/dist08/",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/0436186a-3b62-46f1-8f36-55e09fca3e77",
+   "name": "John Cavanaugh",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 9,
+    "division_id": "ocd-division/country:us/state:ne/sldu:9"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "John",
+   "family_name": "Cavanaugh",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist09/highres/dist09.jpg",
+   "email": "john.cavanaugh@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1980-10-06",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/0436186a-3b62-46f1-8f36-55e09fca3e77/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1008, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2723",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=9",
+     "note": ""
+    },
+    {
+     "url": "https://news.legislature.ne.gov/dist09/",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/bc906a77-5932-4042-9ede-a13b24924236",
+   "name": "Wendy DeBoer",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 10,
+    "division_id": "ocd-division/country:us/state:ne/sldu:10"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Wendy",
+   "family_name": "DeBoer",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist10/highres/dist10.jpg",
+   "email": "wendy.deboer@leg.ne.gov",
+   "gender": "Female",
+   "birth_date": "1974-05-16",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/bc906a77-5932-4042-9ede-a13b24924236/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1114, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2718",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=10",
+     "note": ""
+    },
+    {
+     "url": "https://news.legislature.ne.gov/dist10",
+     "note": ""
+    },
+    {
+     "url": "https://news.legislature.ne.gov/dist10/",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/27784792-d54f-4a64-8408-a4a1ce0c26b1",
+   "name": "Terrell McKinney",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 11,
+    "division_id": "ocd-division/country:us/state:ne/sldu:11"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Terrell",
+   "family_name": "McKinney",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist11/highres/dist11.jpg",
+   "email": "terrell.mckinney@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1990-08-17",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/27784792-d54f-4a64-8408-a4a1ce0c26b1/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1115, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2612",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=11",
+     "note": ""
+    },
+    {
+     "url": "https://news.legislature.ne.gov/dist11/",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/3c015cf9-e3de-42cf-a364-64607ecc70ce",
+   "name": "Merv Riepe",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 12,
+    "division_id": "ocd-division/country:us/state:ne/sldu:12"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Merv",
+   "family_name": "Riepe",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist12/highres/dist12.jpg",
+   "email": "merv.riepe@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1942-07-16",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/3c015cf9-e3de-42cf-a364-64607ecc70ce/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1015, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2623",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=12",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/03ee8938-314f-4db4-ac76-9507d85fc03c",
+   "name": "Ashlei Spivey",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 13,
+    "division_id": "ocd-division/country:us/state:ne/sldu:13"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Ashlei",
+   "family_name": "Spivey",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist13/highres/dist13.jpg",
+   "email": "aspivey@leg.ne.gov",
+   "gender": "Female",
+   "birth_date": "1986-08-15",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/03ee8938-314f-4db4-ac76-9507d85fc03c/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1120, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2727",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=13",
+     "note": ""
+    },
+    {
+     "url": "https://www.ashleifornebraska.com/",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/f5d27385-af4c-4c08-8654-3e27ef120d94",
+   "name": "John Arch",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 14,
+    "division_id": "ocd-division/country:us/state:ne/sldu:14"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "John",
+   "family_name": "Arch",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist14/highres/dist14.jpg",
+   "email": "john.arch@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1955-10-06",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/f5d27385-af4c-4c08-8654-3e27ef120d94/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 2103, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2730",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=14",
+     "note": ""
+    },
+    {
+     "url": "https://news.legislature.ne.gov/dist14",
+     "note": ""
+    },
+    {
+     "url": "https://news.legislature.ne.gov/dist14/",
+     "note": ""
+    },
+    {
+     "url": "https://votearch.com/",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/86a9643e-4777-48d4-a79a-5ed192fb7f70",
+   "name": "Woody Wordekemper",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 15,
+    "division_id": "ocd-division/country:us/state:ne/sldu:15"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Woody",
+   "family_name": "Wordekemper",
+   "image": "https://storage.googleapis.com/enview-dev-public-general/legislative-people-photos/164427.jpg",
+   "email": "dave.wordekemper@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1966-01-24",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/86a9643e-4777-48d4-a79a-5ed192fb7f70/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1110, P.O. Box 94604, Lincoln, NE 94604",
+     "voice": "402-471-2625",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=15",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/bfc9dd37-6a7b-4ea2-acf5-c8e161a27764",
+   "name": "Ben Hansen",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 16,
+    "division_id": "ocd-division/country:us/state:ne/sldu:16"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Ben",
+   "family_name": "Hansen",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist16/highres/dist16.jpg",
+   "email": "ben.hansen@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1979-06-29",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/bfc9dd37-6a7b-4ea2-acf5-c8e161a27764/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 2108, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2728",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=16",
+     "note": ""
+    },
+    {
+     "url": "https://news.legislature.ne.gov/dist16",
+     "note": ""
+    },
+    {
+     "url": "https://news.legislature.ne.gov/dist16/",
+     "note": ""
+    },
+    {
+     "url": "https://www.votebenhansen.com/",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/dae0883f-3a53-4873-99df-b0e10ea64066",
+   "name": "Glen Meyer",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 17,
+    "division_id": "ocd-division/country:us/state:ne/sldu:17"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Glen",
+   "family_name": "Meyer",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist17/highres/dist17.jpg",
+   "email": "glen.meyer@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1951-03-14",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/dae0883f-3a53-4873-99df-b0e10ea64066/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1202, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2716",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=17",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/fdac2d3a-3497-4e34-8247-af670c901dd8",
+   "name": "Christy Armendariz",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 18,
+    "division_id": "ocd-division/country:us/state:ne/sldu:18"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Christy",
+   "family_name": "Armendariz",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist18/highres/dist18.jpg",
+   "email": "carmendariz@leg.ne.gov",
+   "gender": "Female",
+   "birth_date": "1966-12-10",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/fdac2d3a-3497-4e34-8247-af670c901dd8/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1423, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2618",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=18",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/a9cc86ff-602c-453f-9d6c-fd1567c7fbd7",
+   "name": "Robert Dover",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 19,
+    "division_id": "ocd-division/country:us/state:ne/sldu:19"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Robert",
+   "family_name": "Dover",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist19/highres/dist19.jpg",
+   "email": "robert.dover@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1958-12-21",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/a9cc86ff-602c-453f-9d6c-fd1567c7fbd7/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 2011, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2929",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=19",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/30b4a401-6f6b-4367-80c2-b9d60d7c527f",
+   "name": "John Fredrickson",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 20,
+    "division_id": "ocd-division/country:us/state:ne/sldu:20"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "John",
+   "family_name": "Fredrickson",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist20/highres/dist20.jpg",
+   "email": "john.fredrickson@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1987-03-28",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/30b4a401-6f6b-4367-80c2-b9d60d7c527f/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 2015, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2622",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=20",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "pagination": {
+  "per_page": 20,
+  "page": 1,
+  "max_page": 3,
+  "total_items": 49
+ }
+}

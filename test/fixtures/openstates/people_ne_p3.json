@@ -1,0 +1,387 @@
+{
+ "results": [
+  {
+   "id": "ocd-person/5868ed3b-2931-4080-a7c2-9b4eb0e3d487",
+   "name": "Fred Meyer",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 41,
+    "division_id": "ocd-division/country:us/state:ne/sldu:41"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Fred",
+   "family_name": "Meyer",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist41/highres/dist41.jpg",
+   "email": "fmeyer@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1951-10-27",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/5868ed3b-2931-4080-a7c2-9b4eb0e3d487/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1529, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2631",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=41",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/70b3f826-87f3-43c6-9762-27a178156a55",
+   "name": "Mike Jacobson",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 42,
+    "division_id": "ocd-division/country:us/state:ne/sldu:42"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Mike",
+   "family_name": "Jacobson",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist42/highres/dist42.jpg",
+   "email": "mike.jacobson@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1953-11-26",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/70b3f826-87f3-43c6-9762-27a178156a55/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1117, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2729",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=42",
+     "note": ""
+    },
+    {
+     "url": "https://news.legislature.ne.gov/dist42/",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/70751bb8-56af-4fd1-b2dc-21943dc7bb2d",
+   "name": "Tanya Storer",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 43,
+    "division_id": "ocd-division/country:us/state:ne/sldu:43"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Tanya",
+   "family_name": "Storer",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist43/highres/dist43.jpg",
+   "email": "tanya.storer@leg.ne.gov",
+   "gender": "Female",
+   "birth_date": "1969-01-20",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/70751bb8-56af-4fd1-b2dc-21943dc7bb2d/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1529, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2628",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=43",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/374b6dc4-5b90-4028-814c-84895a293c84",
+   "name": "Teresa Ibach",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 44,
+    "division_id": "ocd-division/country:us/state:ne/sldu:44"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Teresa",
+   "family_name": "Ibach",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist44/highres/dist44.jpg",
+   "email": "teresa.ibach@leg.ne.gov",
+   "gender": "Female",
+   "birth_date": "1961-12-07",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/374b6dc4-5b90-4028-814c-84895a293c84/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 2000, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2805",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=44",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/de8d4e0a-36dd-4a84-96ee-e4b7bc4cf69d",
+   "name": "Rita Sanders",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 45,
+    "division_id": "ocd-division/country:us/state:ne/sldu:45"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Rita",
+   "family_name": "Sanders",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist45/highres/dist45.jpg",
+   "email": "rita.sanders@leg.ne.gov",
+   "gender": "Female",
+   "birth_date": "1958-06-30",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/de8d4e0a-36dd-4a84-96ee-e4b7bc4cf69d/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1315, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2615",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=45",
+     "note": ""
+    },
+    {
+     "url": "https://news.legislature.ne.gov/dist45/",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/bf280e36-3547-4d6a-b5aa-d6c32bb5547a",
+   "name": "Danielle Conrad",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 46,
+    "division_id": "ocd-division/country:us/state:ne/sldu:46"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Danielle",
+   "family_name": "Conrad",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist46/highres/dist46.jpg",
+   "email": "danielle.conrad@leg.ne.gov",
+   "gender": "Female",
+   "birth_date": "1977-08-05",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/bf280e36-3547-4d6a-b5aa-d6c32bb5547a/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 2028, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2720",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=46",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/0ae0ba8c-757e-459f-aecc-4a0501a25cbb",
+   "name": "Paul Strommen",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 47,
+    "division_id": "ocd-division/country:us/state:ne/sldu:47"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Paul",
+   "family_name": "Strommen",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist47/highres/dist47.jpg",
+   "email": "paul.strommen@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1969-12-26",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/0ae0ba8c-757e-459f-aecc-4a0501a25cbb/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1321, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2616",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=47",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/a98b3cf6-9bf8-40a3-94f3-1c196e233ebd",
+   "name": "Brian Hardin",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 48,
+    "division_id": "ocd-division/country:us/state:ne/sldu:48"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Brian",
+   "family_name": "Hardin",
+   "image": "https://www.nebraskalegislature.gov/media/images/senators/dist48/highres/dist48.jpg",
+   "email": "bhardin@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1965-12-21",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/a98b3cf6-9bf8-40a3-94f3-1c196e233ebd/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 1021, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2802",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=48",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-person/db002bad-ee6a-4e22-b5c5-840c665ecad4",
+   "name": "Bob Andersen",
+   "party": "Nonpartisan",
+   "current_role": {
+    "title": "Senator",
+    "org_classification": "legislature",
+    "district": 49,
+    "division_id": "ocd-division/country:us/state:ne/sldu:49"
+   },
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "given_name": "Bob",
+   "family_name": "Andersen",
+   "image": "https://storage.googleapis.com/enview-dev-public-general/legislative-people-photos/167021.jpg",
+   "email": "bob.andersen@leg.ne.gov",
+   "gender": "Male",
+   "birth_date": "1963-02-11",
+   "death_date": "",
+   "extras": {},
+   "created_at": "2025-01-08T00:00:00+00:00",
+   "updated_at": "2026-11-01T12:00:00+00:00",
+   "openstates_url": "https://openstates.org/person/db002bad-ee6a-4e22-b5c5-840c665ecad4/",
+   "offices": [
+    {
+     "name": "Capitol Office",
+     "address": "State Capitol Room 2012, P.O. Box 94604, Lincoln, NE 68509",
+     "voice": "402-471-2725",
+     "classification": "capitol"
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/senators/landing-pages/index.php?District=49",
+     "note": ""
+    }
+   ]
+  }
+ ],
+ "pagination": {
+  "per_page": 20,
+  "page": 3,
+  "max_page": 3,
+  "total_items": 49
+ }
+}

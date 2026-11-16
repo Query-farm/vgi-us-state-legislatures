@@ -1,0 +1,251 @@
+{
+ "results": [
+  {
+   "id": "ocd-bill/00000000-0000-4000-8000-000000000001",
+   "session": "109",
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "from_organization": {
+    "id": "ocd-organization/ne-legislature-synthetic",
+    "name": "Nebraska Legislature",
+    "classification": "legislature"
+   },
+   "identifier": "LB 1",
+   "title": "Change provisions relating to the state scorpion (synthetic fixture)",
+   "classification": [
+    "bill"
+   ],
+   "subject": [
+    "SYMBOLS"
+   ],
+   "extras": {},
+   "created_at": "2025-01-10T15:00:00+00:00",
+   "updated_at": "2026-11-12T10:00:00+00:00",
+   "openstates_url": "https://openstates.org/ne/bills/109/LB1/",
+   "first_action_date": "2025-01-09",
+   "latest_action_date": "2025-04-10",
+   "latest_action_description": "Passed on Final Reading 41-6-2",
+   "latest_passage_date": "2025-04-10",
+   "abstracts": [
+    {
+     "abstract": "Synthetic abstract for LB 1.",
+     "note": "",
+     "date": ""
+    }
+   ],
+   "sponsorships": [
+    {
+     "id": "s-c6d5",
+     "name": "Bob Hallstrom",
+     "entity_type": "person",
+     "person": {
+      "id": "ocd-person/cc0182c9-3cfe-46b1-8fd2-03e90385c6d5",
+      "name": "Bob Hallstrom",
+      "party": "Nonpartisan"
+     },
+     "primary": true,
+     "classification": "primary"
+    },
+    {
+     "id": "s-ff84",
+     "name": "Rob Clements",
+     "entity_type": "person",
+     "person": {
+      "id": "ocd-person/809c0698-2669-426a-819a-275a0773ff84",
+      "name": "Rob Clements",
+      "party": "Nonpartisan"
+     },
+     "primary": false,
+     "classification": "cosponsor"
+    }
+   ],
+   "actions": [
+    {
+     "id": "a2",
+     "organization": {
+      "id": "ocd-organization/ne-legislature-synthetic",
+      "name": "Nebraska Legislature",
+      "classification": "legislature"
+     },
+     "description": "Advanced to General File",
+     "date": "2025-03-01",
+     "classification": [
+      "referral-committee"
+     ],
+     "order": 2
+    },
+    {
+     "id": "a1",
+     "organization": {
+      "id": "ocd-organization/ne-legislature-synthetic",
+      "name": "Nebraska Legislature",
+      "classification": "legislature"
+     },
+     "description": "Date of introduction",
+     "date": "2025-01-09",
+     "classification": [
+      "introduction"
+     ],
+     "order": 1
+    },
+    {
+     "id": "a3",
+     "organization": {
+      "id": "ocd-organization/ne-legislature-synthetic",
+      "name": "Nebraska Legislature",
+      "classification": "legislature"
+     },
+     "description": "Passed on Final Reading 41-6-2",
+     "date": "2025-04-10",
+     "classification": [
+      "passage"
+     ],
+     "order": 3
+    }
+   ],
+   "votes": [
+    {
+     "id": "ocd-vote/00000000-0000-4000-9000-000000000001",
+     "motion_text": "Final Reading",
+     "motion_classification": [
+      "passage"
+     ],
+     "start_date": "2025-04-10T10:30:00-05:00",
+     "result": "pass",
+     "identifier": "",
+     "extras": {},
+     "organization": {
+      "id": "ocd-organization/ne-legislature-synthetic",
+      "name": "Nebraska Legislature",
+      "classification": "legislature"
+     },
+     "votes": [
+      {
+       "id": "pv0",
+       "option": "yes",
+       "voter_name": "Hallstrom",
+       "voter": {
+        "id": "ocd-person/cc0182c9-3cfe-46b1-8fd2-03e90385c6d5",
+        "name": "Bob Hallstrom",
+        "party": "Nonpartisan"
+       }
+      },
+      {
+       "id": "pv1",
+       "option": "yes",
+       "voter_name": "Clements",
+       "voter": {
+        "id": "ocd-person/809c0698-2669-426a-819a-275a0773ff84",
+        "name": "Rob Clements",
+        "party": "Nonpartisan"
+       }
+      },
+      {
+       "id": "pv2",
+       "option": "no",
+       "voter_name": "Rountree",
+       "voter": {
+        "id": "ocd-person/1e43a5b4-e63c-434a-977c-592174c2c635",
+        "name": "Victor Rountree",
+        "party": "Nonpartisan"
+       }
+      }
+     ],
+     "counts": [
+      {
+       "option": "yes",
+       "value": 41
+      },
+      {
+       "option": "no",
+       "value": 6
+      },
+      {
+       "option": "not voting",
+       "value": 2
+      }
+     ],
+     "sources": []
+    }
+   ]
+  },
+  {
+   "id": "ocd-bill/00000000-0000-4000-8000-000000000002",
+   "session": "109",
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "from_organization": {
+    "id": "ocd-organization/ne-legislature-synthetic",
+    "name": "Nebraska Legislature",
+    "classification": "legislature"
+   },
+   "identifier": "LB 2",
+   "title": "Adopt the Synthetic Fixture Act",
+   "classification": [
+    "bill"
+   ],
+   "subject": [
+    "TAXATION",
+    "BUDGET"
+   ],
+   "extras": {},
+   "created_at": "2025-01-10T15:00:00+00:00",
+   "updated_at": "2026-10-01T10:00:00+00:00",
+   "openstates_url": "https://openstates.org/ne/bills/109/LB2/",
+   "first_action_date": "2025-01-09",
+   "latest_action_date": "2025-01-09",
+   "latest_action_description": "Date of introduction",
+   "latest_passage_date": null,
+   "abstracts": [
+    {
+     "abstract": "Synthetic abstract for LB 2.",
+     "note": "",
+     "date": ""
+    }
+   ],
+   "sponsorships": [
+    {
+     "id": "s-c635",
+     "name": "Victor Rountree",
+     "entity_type": "person",
+     "person": {
+      "id": "ocd-person/1e43a5b4-e63c-434a-977c-592174c2c635",
+      "name": "Victor Rountree",
+      "party": "Nonpartisan"
+     },
+     "primary": true,
+     "classification": "primary"
+    }
+   ],
+   "actions": [
+    {
+     "id": "a1",
+     "organization": {
+      "id": "ocd-organization/ne-legislature-synthetic",
+      "name": "Nebraska Legislature",
+      "classification": "legislature"
+     },
+     "description": "Date of introduction",
+     "date": "2025-01-09",
+     "classification": [
+      "introduction"
+     ],
+     "order": 1
+    }
+   ],
+   "votes": []
+  }
+ ],
+ "pagination": {
+  "per_page": 20,
+  "page": 1,
+  "max_page": 2,
+  "total_items": 3
+ }
+}

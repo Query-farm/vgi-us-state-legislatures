@@ -96,8 +96,10 @@ jobs:
           location: ${{ github.workspace }}/.venv/bin/vgi-us-statelegs-worker
           # Set in vgi-lint.toml, so local runs and CI agree.
           fail-on: ${{ steps.lintcfg.outputs.fail_on }}
-          # Set to false if your examples need real credentials or network access.
-          execute: true
+          # false: the os_* functions (os_bills, os_votes, os_people, os_sessions, os_committees,
+          # os_events, os_jurisdictions) need an Open States API key (secret TYPE openstates), so
+          # their examples cannot run in CI. The keyless functions are covered by test/sql.
+          execute: false
 
   docker:
     name: Docker image smoke test

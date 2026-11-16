@@ -1,0 +1,130 @@
+{
+ "results": [
+  {
+   "id": "ocd-bill/00000000-0000-4000-8000-000000000003",
+   "session": "109",
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "from_organization": {
+    "id": "ocd-organization/ne-legislature-synthetic",
+    "name": "Nebraska Legislature",
+    "classification": "legislature"
+   },
+   "identifier": "LR 3",
+   "title": "Recognize the fixture as a resolution",
+   "classification": [
+    "resolution"
+   ],
+   "subject": [],
+   "extras": {},
+   "created_at": "2025-01-10T15:00:00+00:00",
+   "updated_at": "2026-09-01T10:00:00+00:00",
+   "openstates_url": "https://openstates.org/ne/bills/109/LR3/",
+   "first_action_date": "2025-01-15",
+   "latest_action_date": "2025-01-15",
+   "latest_action_description": "Referred to Executive Board",
+   "latest_passage_date": null,
+   "abstracts": [
+    {
+     "abstract": "Synthetic abstract for LR 3.",
+     "note": "",
+     "date": ""
+    }
+   ],
+   "sponsorships": [
+    {
+     "id": "s-ff84",
+     "name": "Rob Clements",
+     "entity_type": "person",
+     "person": {
+      "id": "ocd-person/809c0698-2669-426a-819a-275a0773ff84",
+      "name": "Rob Clements",
+      "party": "Nonpartisan"
+     },
+     "primary": true,
+     "classification": "primary"
+    }
+   ],
+   "actions": [
+    {
+     "id": "a1",
+     "organization": {
+      "id": "ocd-organization/ne-legislature-synthetic",
+      "name": "Nebraska Legislature",
+      "classification": "legislature"
+     },
+     "description": "Referred to Executive Board",
+     "date": "2025-01-15",
+     "classification": [
+      "referral-committee"
+     ],
+     "order": 1
+    }
+   ],
+   "votes": [
+    {
+     "id": "ocd-vote/00000000-0000-4000-9000-000000000002",
+     "motion_text": "Adopt",
+     "motion_classification": [
+      "passage"
+     ],
+     "start_date": "2025-02-01",
+     "result": "fail",
+     "identifier": "",
+     "extras": {},
+     "organization": {
+      "id": "ocd-organization/ne-legislature-synthetic",
+      "name": "Nebraska Legislature",
+      "classification": "legislature"
+     },
+     "votes": [
+      {
+       "id": "pv0",
+       "option": "no",
+       "voter_name": "Hallstrom",
+       "voter": {
+        "id": "ocd-person/cc0182c9-3cfe-46b1-8fd2-03e90385c6d5",
+        "name": "Bob Hallstrom",
+        "party": "Nonpartisan"
+       }
+      },
+      {
+       "id": "pv1",
+       "option": "yes",
+       "voter_name": "Clements",
+       "voter": {
+        "id": "ocd-person/809c0698-2669-426a-819a-275a0773ff84",
+        "name": "Rob Clements",
+        "party": "Nonpartisan"
+       }
+      }
+     ],
+     "counts": [
+      {
+       "option": "yes",
+       "value": 12
+      },
+      {
+       "option": "no",
+       "value": 30
+      },
+      {
+       "option": "not voting",
+       "value": 7
+      }
+     ],
+     "sources": []
+    }
+   ]
+  }
+ ],
+ "pagination": {
+  "per_page": 20,
+  "page": 2,
+  "max_page": 2,
+  "total_items": 3
+ }
+}

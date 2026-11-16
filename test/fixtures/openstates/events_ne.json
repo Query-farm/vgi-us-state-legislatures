@@ -1,0 +1,79 @@
+{
+ "results": [
+  {
+   "id": "ocd-event/00000000-0000-4000-a000-000000000001",
+   "name": "Agriculture Committee Hearing",
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "description": "Public hearing (synthetic fixture)",
+   "classification": "committee-meeting",
+   "start_date": "2026-02-03T13:30:00-06:00",
+   "end_date": "",
+   "all_day": false,
+   "status": "tentative",
+   "upstream_id": "",
+   "deleted": false,
+   "location": {
+    "name": "Room 1524, State Capitol",
+    "url": ""
+   },
+   "links": [],
+   "sources": [],
+   "media": [],
+   "documents": [],
+   "participants": [
+    {
+     "note": "host",
+     "name": "Agriculture",
+     "entity_type": "organization"
+    }
+   ],
+   "agenda": [
+    {
+     "description": "LB 2",
+     "order": 2
+    },
+    {
+     "description": "LB 1",
+     "order": 1
+    }
+   ]
+  },
+  {
+   "id": "ocd-event/00000000-0000-4000-a000-000000000002",
+   "name": "Floor Session",
+   "jurisdiction": {
+    "id": "ocd-jurisdiction/country:us/state:ne/government",
+    "name": "Nebraska",
+    "classification": "state"
+   },
+   "description": "",
+   "classification": "floor",
+   "start_date": "2026-02-04T09:00:00-06:00",
+   "end_date": "2026-02-04T12:00:00-06:00",
+   "all_day": false,
+   "status": "cancelled",
+   "upstream_id": "",
+   "deleted": false,
+   "location": {
+    "name": "Legislative Chamber",
+    "url": ""
+   },
+   "links": [],
+   "sources": [],
+   "media": [],
+   "documents": [],
+   "participants": [],
+   "agenda": []
+  }
+ ],
+ "pagination": {
+  "per_page": 20,
+  "page": 1,
+  "max_page": 1,
+  "total_items": 2
+ }
+}

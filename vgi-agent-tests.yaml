@@ -1,16 +1,68 @@
 # Private graders for the public vgi.agent_test_tasks in the worker's catalog metadata.
-# `vgi-lint lint --ai` runs an agent on each prompt and grades it with check_sql.
-# See https://github.com/Query-farm/vgi-lint-check (VGI920).
+# `vgi-lint lint --ai` runs an agent on each prompt and grades it. See
+# https://github.com/Query-farm/vgi-lint-check (VGI920).
+#
+# Static datasets (bundled reference table, Klarner 1967-2016, Shor-McCarty January 2025) grade
+# with reference_sql. Live data (the Open States people repository changes with every commit, and the
+# os_* functions need an Open States API key) grade with check_sql; the os_* tasks can only pass when
+# an `openstates` secret is configured for the run.
 tasks:
-  - name: formal_greeting
-    reference_sql: SELECT us_statelegs.main.greet('Grace', 'formal') AS greeting
-  - name: sum_of_squares
-    reference_sql: SELECT sum(squared) AS total FROM us_statelegs.main.sequence_table(10)
-  - name: stepped_sequence
-    reference_sql: SELECT n FROM us_statelegs.main.sequence_table(4, step := 5) ORDER BY n
-  # Reads the public demo API (https://vgi-starter-api.query-farm.services/v1).
-  - name: items_per_category
+  - name: unicameral_legislatures
+    reference_sql: SELECT state FROM us_statelegs.main.states WHERE unicameral ORDER BY state
+  - name: fips_for_state
+    reference_sql: >-
+      SELECT state_fips FROM us_statelegs.main.states
+      WHERE jurisdiction_id = 'ocd-jurisdiction/country:us/state:ne/government'
+  - name: lower_chamber_names
+    reference_sql: >-
+      SELECT count(*) AS states FROM us_statelegs.main.states WHERE lower_chamber_name = 'House of Delegates'
+  - name: nebraska_current_senators
     check_sql: >-
-      SELECT count(*) = 3 AND sum(items) = 25
-      FROM (SELECT category, count(*) AS items
-            FROM us_statelegs.main.fetch_items('https://vgi-starter-api.query-farm.services/v1') GROUP BY category)
+      SELECT count(*) BETWEEN 40 AND 49
+      FROM us_statelegs.main.legislators(state := 'NE', current := true)
+  - name: both_chambers_ohio
+    check_sql: >-
+      SELECT count(*) > 0 FROM (
+        SELECT person_id FROM us_statelegs.main.legislator_roles(state := 'OH')
+        GROUP BY person_id HAVING count(DISTINCT chamber) = 2)
+  - name: nebraska_agriculture_chair
+    check_sql: >-
+      SELECT count(*) = 1
+      FROM us_statelegs.main.committee_members(state := 'NE') m
+      JOIN us_statelegs.main.committees(state := 'NE') c USING (committee_id)
+      WHERE c.name = 'Agriculture' AND m.role = 'chair'
+  - name: vermont_addison_2016
+    reference_sql: >-
+      SELECT candidate FROM us_statelegs.main.election_returns(state := 'VT', chamber := 'upper',
+        first_year := 2016, last_year := 2016)
+      WHERE election_type = 'g' AND district = 'Addison'
+      GROUP BY candidate ORDER BY sum(votes) DESC LIMIT 1
+  - name: nebraska_ideology_2010
+    reference_sql: >-
+      SELECT count(DISTINCT legislator_id) AS legislators
+      FROM us_statelegs.main.legislator_ideology(state := 'NE', first_year := 2010, last_year := 2010)
+  - name: vermont_house_polarization_2010
+    reference_sql: >-
+      SELECT party_gap FROM us_statelegs.main.chamber_ideology(state := 'VT', first_year := 2010, last_year := 2010)
+      WHERE chamber = 'lower'
+  - name: klarner_licence
+    reference_sql: >-
+      SELECT licence FROM us_statelegs.main.cache_info() WHERE dataset = 'klarner_election_returns'
+  - name: refresh_people_data
+    check_sql: SELECT bool_and(cached) FROM us_statelegs.main.refresh_cache('people')
+  - name: nebraska_sessions_api
+    check_sql: >-
+      SELECT (SELECT count(*) > 0 FROM us_statelegs.main.os_sessions(state := 'NE'))
+        AND (SELECT count(*) = 1 FROM us_statelegs.main.os_jurisdictions() WHERE state = 'NE')
+  - name: nebraska_district_13_api
+    check_sql: SELECT count(*) = 1 FROM us_statelegs.main.os_people(state := 'NE', district := '13')
+  - name: nebraska_bills_votes_api
+    check_sql: >-
+      SELECT (SELECT count(*) >= 0 FROM us_statelegs.main.os_votes(state := 'NE', session := '109',
+                updated_since := '2026-01-01'))
+        AND (SELECT count(*) >= 0 FROM us_statelegs.main.os_bills(state := 'NE', session := '109',
+                updated_since := '2026-01-01'))
+  - name: nebraska_committees_events_api
+    check_sql: >-
+      SELECT (SELECT count(*) > 0 FROM us_statelegs.main.os_committees(state := 'NE'))
+        AND (SELECT count(*) >= 0 FROM us_statelegs.main.os_events(state := 'NE', after_date := '2026-01-01'))

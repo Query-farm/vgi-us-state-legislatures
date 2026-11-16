@@ -1,15 +1,18 @@
 [project]
 name = "vgi-us-statelegs-worker"
 version = "0.1.0"
-description = "A VGI worker for DuckDB, generated from the Query.Farm VGI starter template."
+description = "US state legislatures in DuckDB: legislators, committees, election returns, ideology, bills and votes (VGI worker)."
 readme = "README.md"
-license = "MIT-0"
+license = "0BSD"
 license-files = ["LICENSE"]
 requires-python = ">=3.13"
 dependencies = [
-    # [http] adds the HTTP transport (`--http`) used by Docker deploys.
+    # [http] adds the HTTP transport (`--http`) used by Docker deploys; [haybarn] is the
+    # local engine vgi-python needs to re-apply pushed-down filters (filter_pushdown).
     # SDK bumps go through the template (minor bumps can raise the protocol).
-    "vgi-python[http]>=0.51.1,<0.52",
+    "vgi-python[http,haybarn]>=0.51.1,<0.52",
+    "platformdirs>=4",
+    "pyyaml>=6",
 ]
 
 [project.scripts]
@@ -24,6 +27,7 @@ dev = [
     "mypy>=1.18",
     "ruff>=0.14",
     "pyarrow-stubs>=20.0",
+    "types-PyYAML>=6",
 ]
 
 [build-system]

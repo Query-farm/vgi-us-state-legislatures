@@ -6,16 +6,24 @@
 # The worker to attach, relative to this directory. Build it first with `make build`.
 location = ".venv/bin/vgi-us-statelegs-worker"
 
-# Fail on warnings while you build. Raise this to "info" before you publish the worker.
-fail_on = "warning"
+# The publish gate: zero findings at info level.
+fail_on = "info"
 
 # Waive a finding only with a kind and a reason, so the waiver can be audited:
 #   domain-exemption  permanent and legitimate for this worker
 #   deferred          a real defect you will fix; add expires = "YYYY-MM-DD"
 #   timing            slow or flaky because of the environment, not the metadata
 #   tooling-bug       the linter is wrong; report it upstream
+ignore = []
+
+[per_object."us_statelegs.main.cache_info"]
 ignore = [
-  # { code = "VGI146", kind = "domain-exemption", reason = "every entry point needs a key" },
+  { code = "VGI311", kind = "domain-exemption", reason = "reports the mutable state of the local download cache (cached?, size, download time), which changes between calls; a status probe, not a fixed dataset" },
+]
+
+[per_object."us_statelegs.main.os_jurisdictions"]
+ignore = [
+  { code = "VGI311", kind = "domain-exemption", reason = "a live Open States API call that needs an API key secret; as a catalog table it would fail keyless catalog scans" },
 ]
 
 # Adopting the gate on a worker that already has findings? Record them once with

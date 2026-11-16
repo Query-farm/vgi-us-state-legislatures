@@ -1,7 +1,6 @@
 # name: test/sql/us_statelegs.test
-# description: SQL-level tests for the us_statelegs worker, run through DuckDB by ci/run-integration.sh
+# description: SQL-level tests for the us_statelegs worker against recorded fixtures (ci/run-integration.sh)
 # group: [us_statelegs]
-# managed-by: vgi-starters (edit upstream in shared/, then run tools/render.py)
 
 require vgi
 
@@ -9,140 +8,271 @@ require-env US_STATELEGS_WORKER
 
 require-env US_STATELEGS_MOCK_API
 
-require-env US_STATELEGS_MOCK_API_AUTH
+require-env US_STATELEGS_CACHE_DIR
 
 statement ok
-ATTACH 'us_statelegs' (TYPE vgi, LOCATION '{US_STATELEGS_WORKER}');
+ATTACH 'us_statelegs' (TYPE vgi, LOCATION '{US_STATELEGS_WORKER}',
+    CACHE_DIR '{US_STATELEGS_CACHE_DIR}/main',
+    PEOPLE_ARCHIVE_URL '{US_STATELEGS_MOCK_API}/files/people.tar.gz',
+    KLARNER_URL '{US_STATELEGS_MOCK_API}/files/klarner.tab',
+    SHOR_MCCARTY_URL '{US_STATELEGS_MOCK_API}/files/shor_mccarty_individual.tab',
+    SHOR_MCCARTY_AGGREGATE_URL '{US_STATELEGS_MOCK_API}/files/shor_mccarty_aggregate.tab',
+    OPENSTATES_API_URL '{US_STATELEGS_MOCK_API}/v3',
+    OPENSTATES_MIN_INTERVAL 0);
 
-# ---------------------------------------------------------------- greet (scalar)
-
-query T
-SELECT us_statelegs.main.greet('Ada');
-----
-Hi, Ada!
-
-query T
-SELECT us_statelegs.main.greet('Ada', 'formal');
-----
-Good day, Ada.
-
-# NULL in, NULL out.
-query T
-SELECT us_statelegs.main.greet(NULL);
-----
-NULL
-
-# Works over a whole column, one result per row.
-query T
-SELECT us_statelegs.main.greet(name) FROM (VALUES ('Ada'), ('Grace'), (NULL)) AS t(name) ORDER BY ALL NULLS LAST;
-----
-Hi, Ada!
-Hi, Grace!
-NULL
-
-# `style` is constrained to 'casual' | 'formal' and checked when the query is bound.
-# (No expected message: each SDK words constraint errors its own way.)
-statement error
-SELECT us_statelegs.main.greet('Ada', 'loud');
-----
-<REGEX>:.*
-
-# ------------------------------------------------------ sequence_table (table fn)
-
-query II
-SELECT n, squared FROM us_statelegs.main.sequence_table(4) ORDER BY n;
-----
-0	0
-1	1
-2	4
-3	9
-
-# Named argument with a default.
-query I
-SELECT n FROM us_statelegs.main.sequence_table(3, step := 5) ORDER BY n;
-----
-0
-5
-10
-
-# Larger than one batch: the cursor must carry across process calls.
-query II
-SELECT count(*), max(n) FROM us_statelegs.main.sequence_table(25000);
-----
-25000	24999
-
-query I
-SELECT count(*) FROM us_statelegs.main.sequence_table(0);
-----
-0
-
-# count is constrained to [0, 1000000].
-statement error
-SELECT * FROM us_statelegs.main.sequence_table(-1);
-----
-<REGEX>:.*
-
-# Named arguments are constrained too: step >= 1.
-statement error
-SELECT * FROM us_statelegs.main.sequence_table(3, step := 0);
-----
-<REGEX>:.*
-
-# ------------------------------------------------- fetch_items (REST table fn)
+# ---------------------------------------------------------------- reference (bundled)
 
 query IIT
-SELECT count(*), sum(id), min(name) FROM us_statelegs.main.fetch_items('{US_STATELEGS_MOCK_API}', page_size := 4);
+SELECT count(*), count(*) FILTER (WHERE unicameral), string_agg(state, ',' ORDER BY state) FILTER (WHERE unicameral)
+FROM us_statelegs.main.states;
 ----
-25	325	item-01
+52	2	DC,NE
+
+query TTTT
+SELECT state, state_fips, jurisdiction_id, list_aggregate(chambers, 'string_agg', ',')
+FROM us_statelegs.main.states WHERE state IN ('NE', 'PR', 'AL') ORDER BY state;
+----
+AL	01	ocd-jurisdiction/country:us/state:al/government	upper,lower
+NE	31	ocd-jurisdiction/country:us/state:ne/government	legislature
+PR	72	ocd-jurisdiction/country:us/territory:pr/government	upper,lower
+
+# ---------------------------------------------------------------- cache (nothing downloaded yet)
+
+query TT
+SELECT dataset, cached FROM us_statelegs.main.cache_info() ORDER BY dataset;
+----
+klarner_election_returns	false
+people	false
+shor_mccarty_aggregate	false
+shor_mccarty_individual	false
+
+# ---------------------------------------------------------------- legislators (people repository fixture: NE + DC)
+
+query TTI
+SELECT state, current, count(*) FROM us_statelegs.main.legislators() GROUP BY ALL ORDER BY ALL;
+----
+DC	false	19
+DC	true	13
+NE	false	103
+NE	true	49
+
+query TTTTI
+SELECT name, chamber, district, party, roles
+FROM us_statelegs.main.legislators(state := 'ne', current := true) ORDER BY district::INTEGER LIMIT 3;
+----
+Bob Hallstrom	legislature	1	Nonpartisan	1
+Rob Clements	legislature	2	Nonpartisan	1
+Victor Rountree	legislature	3	Nonpartisan	1
+
+# A pushed-down state filter, a FIPS code argument and an IN list.
+query I
+SELECT count(*) FROM us_statelegs.main.legislators() WHERE state = 'NE' AND current;
+----
+49
+
+query I
+SELECT count(*) FROM us_statelegs.main.legislators(state := '31', current := true);
+----
+49
+
+query T
+SELECT string_agg(DISTINCT state, ',' ORDER BY state) FROM us_statelegs.main.legislators() WHERE state IN ('DC', 'NE');
+----
+DC,NE
+
+# A state the fixture has no files for returns no rows; an unknown code is an error.
+query I
+SELECT count(*) FROM us_statelegs.main.legislators(state := 'NC');
+----
+0
+
+statement error
+SELECT count(*) FROM us_statelegs.main.legislators(state := 'ZZ');
+----
+<REGEX>:.*unknown state.*
+
+query TTT
+SELECT name, email, instagram FROM us_statelegs.main.legislators(state := 'NE') WHERE district = '13' AND current;
+----
+Ashlei Spivey	aspivey@leg.ne.gov	ashleiforne
 
 query TI
-SELECT category, count(*) FROM us_statelegs.main.fetch_items('{US_STATELEGS_MOCK_API}') GROUP BY category ORDER BY category;
+SELECT state, count(*) FROM us_statelegs.main.legislator_roles() GROUP BY ALL ORDER BY ALL;
 ----
-hardware	8
-service	8
-software	9
+DC	35
+NE	158
 
-# The harness runs US_STATELEGS_MOCK_API with MOCK_API_FLAKY=1: every page answers
-# 429 + Retry-After once, so every query above also exercised the retry path.
+# ---------------------------------------------------------------- committees
 
-# US_STATELEGS_MOCK_API_AUTH requires a bearer token ('test-token'). Every language's
-# fetch_items must put the HTTP status code in its error message.
-statement error
-SELECT count(*) FROM us_statelegs.main.fetch_items('{US_STATELEGS_MOCK_API_AUTH}');
+query TTI
+SELECT name, chair, members FROM us_statelegs.main.committees(state := 'NE') WHERE name = 'Agriculture';
 ----
-401
+Agriculture	Barry DeKay	8
 
-statement ok
-CREATE SECRET us_statelegs_api_test (TYPE us_statelegs_api, TOKEN 'test-token');
+query TT
+SELECT m.role, l.name FROM us_statelegs.main.committee_members(state := 'NE') m
+JOIN us_statelegs.main.legislators(state := 'NE') l USING (person_id)
+WHERE m.committee_name = 'Agriculture' AND m.role <> 'member' ORDER BY m.role;
+----
+chair	Barry DeKay
+vice chair	Teresa Ibach
+
+# ---------------------------------------------------------------- Klarner election returns (fixture: NE 2014/2016, VT 2016, WI 2016 lower)
+
+query TITII
+SELECT state, year, chamber, count(*), sum(votes) FROM us_statelegs.main.election_returns() GROUP BY ALL ORDER BY ALL;
+----
+NE	2014	legislature	179	407906
+NE	2016	legislature	111	369739
+VT	2016	lower	347	410008
+VT	2016	upper	66	666315
+WI	2016	lower	261	2587171
+
+query II
+SELECT count(*), count(DISTINCT year) FROM us_statelegs.main.election_returns(state := 'NE') WHERE year >= 2016;
+----
+111	1
 
 query I
-SELECT count(*) FROM us_statelegs.main.fetch_items('{US_STATELEGS_MOCK_API_AUTH}', page_size := 25);
+SELECT count(*) FROM us_statelegs.main.election_returns(state := 'VT', chamber := 'upper', first_year := 2016, last_year := 2016);
 ----
-25
+66
 
-# Several pages: the token must survive between batches (over HTTP each batch is a
-# separate request, so a token kept only in memory is lost after page 1).
-query I
-SELECT count(*) FROM us_statelegs.main.fetch_items('{US_STATELEGS_MOCK_API_AUTH}', page_size := 7);
+query TTTTIT
+SELECT district, candidate, party, incumbent, votes, outcome FROM us_statelegs.main.election_returns(state := 'VT', chamber := 'upper')
+WHERE election_type = 'g' AND district = 'Addison' ORDER BY votes DESC LIMIT 2;
 ----
-25
+Addison	ayer, claire	d	true	11988	w
+Addison	bray, christopher a.	d	true	9545	w
+
+# ---------------------------------------------------------------- Shor-McCarty (fixture: April 2023 CC0 release, NE + VT)
+
+query TTIIII
+SELECT state, chamber, count(*), count(DISTINCT legislator_id), min(year), max(year)
+FROM us_statelegs.main.legislator_ideology() GROUP BY ALL ORDER BY ALL;
+----
+NE	legislature	1222	199	1996	2020
+VT	lower	3923	587	1995	2020
+VT	upper	790	103	1995	2020
+
+query ITRR
+SELECT year, chamber, median, party_gap FROM us_statelegs.main.chamber_ideology(state := 'NE', first_year := 2019);
+----
+2019	legislature	0.568	1.757
+2020	legislature	0.568	1.757
+
+query I
+SELECT count(*) FROM us_statelegs.main.chamber_ideology() WHERE state = 'VT' AND year = 2010;
+----
+2
+
+# ---------------------------------------------------------------- cache after use
+
+query TTT
+SELECT dataset, cached, status FROM us_statelegs.main.cache_info() ORDER BY dataset;
+----
+klarner_election_returns	true	cached
+people	true	cached
+shor_mccarty_aggregate	true	cached
+shor_mccarty_individual	true	cached
+
+query TT
+SELECT dataset, status FROM us_statelegs.main.refresh_cache('people');
+----
+people	downloaded
+
+# ---------------------------------------------------------------- Open States API (mock; needs the openstates secret)
+
+statement error
+SELECT count(*) FROM us_statelegs.main.os_jurisdictions();
+----
+<REGEX>:.*TYPE openstates.*
 
 statement ok
-DROP SECRET us_statelegs_api_test;
+CREATE SECRET os_test (TYPE openstates, API_KEY 'test-key');
 
-# base_url must be http(s).
-statement error
-SELECT * FROM us_statelegs.main.fetch_items('ftp://example.com');
+query TT
+SELECT state, name FROM us_statelegs.main.os_jurisdictions() ORDER BY state;
 ----
-<REGEX>:.*
+NC	North Carolina
+NE	Nebraska
 
-# page_size is a named argument constrained to [1, 1000].
-statement error
-SELECT * FROM us_statelegs.main.fetch_items('{US_STATELEGS_MOCK_API}', page_size := 0);
+query TTI
+SELECT session, name, len(downloads) FROM us_statelegs.main.os_sessions(state := 'NE') ORDER BY session;
 ----
-<REGEX>:.*
+108	108th Legislature (2023-2024)	1
+109	109th Legislature (2025-2026)	0
+
+# Three pages of 20 / 20 / 9 people.
+query IIT
+SELECT count(*), count(DISTINCT district), min(chamber) FROM us_statelegs.main.os_people(state := 'NE');
+----
+49	49	legislature
+
+query T
+SELECT name FROM us_statelegs.main.os_people(state := 'NE', district := '13');
+----
+Ashlei Spivey
+
+query TTTT
+SELECT identifier, chamber, first_action_date, sponsors[1].name FROM us_statelegs.main.os_bills(state := 'NE', session := '109') ORDER BY identifier;
+----
+LB 1	legislature	2025-01-09	Bob Hallstrom
+LB 2	legislature	2025-01-09	Victor Rountree
+LR 3	legislature	2025-01-15	Rob Clements
+
+# updated_at >= ... is pushed to the API as updated_since.
+query T
+SELECT identifier FROM us_statelegs.main.os_bills() WHERE state = 'NE' AND updated_at >= TIMESTAMPTZ '2026-09-15 00:00:00+00' ORDER BY 1;
+----
+LB 1
+LB 2
 
 statement error
-SELECT * FROM us_statelegs.main.fetch_items('{US_STATELEGS_MOCK_API}', page_size := 5000);
+SELECT count(*) FROM us_statelegs.main.os_bills();
 ----
-<REGEX>:.*
+<REGEX>:.*jurisdiction or search.*
+
+query TTIIIT
+SELECT bill_identifier, result, yes, no, other, votes[3].option FROM us_statelegs.main.os_votes(state := 'NE') ORDER BY 1;
+----
+LB 1	pass	41	6	2	no
+LR 3	fail	12	30	7	NULL
+
+query TTT
+SELECT l.name, v.option, l.district FROM us_statelegs.main.os_votes(state := 'NE') o, unnest(o.votes) AS u(v)
+JOIN us_statelegs.main.legislators(state := 'NE') l ON l.person_id = v.person_id
+WHERE o.bill_identifier = 'LB 1' ORDER BY l.district::INTEGER;
+----
+Bob Hallstrom	yes	1
+Rob Clements	yes	2
+Victor Rountree	no	3
+
+query TTI
+SELECT state, name, len(members) FROM us_statelegs.main.os_committees(state := 'NE') ORDER BY name;
+----
+NE	Agriculture	2
+NE	Appropriations	0
+
+query TTT
+SELECT name, status, agenda[1].description FROM us_statelegs.main.os_events(state := 'NE') ORDER BY start_time;
+----
+Agriculture Committee Hearing	tentative	LB 2
+Floor Session	cancelled	NULL
+
+statement error
+SELECT count(*) FROM us_statelegs.main.os_events();
+----
+<REGEX>:.*needs a state.*
+
+# ---------------------------------------------------------------- OFFLINE with an empty cache fails clearly
+
+statement ok
+ATTACH 'us_statelegs' AS offline_sl (TYPE vgi, LOCATION '{US_STATELEGS_WORKER}',
+    CACHE_DIR '{US_STATELEGS_CACHE_DIR}/empty', OFFLINE true,
+    PEOPLE_ARCHIVE_URL '{US_STATELEGS_MOCK_API}/files/people.tar.gz');
+
+statement error
+SELECT count(*) FROM offline_sl.main.legislators(state := 'NE');
+----
+<REGEX>:.*OFFLINE.*

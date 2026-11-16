@@ -22,14 +22,18 @@ Faster loops while iterating: `make test-unit`, `make test-sql`, `make lint-expl
 
 ```
 src/us_statelegs_worker/
-  worker.py        # assembles the catalog; add new functions to FUNCTIONS
-  meta.py          # catalog/schema metadata + helpers (object_tags, column)
-  greet.py         # scalar example (overloads, ConstParam choices)
-  sequence.py      # table function example (named args, streaming state)
-  fetch_items.py   # REST API table function (pagination, retries, secrets)
+  worker.py        # assembles the catalog; ATTACH options; add new functions to FUNCTIONS
+  meta.py          # catalog/schema metadata + helpers (object_tags, column, result_columns)
+  common.py        # settings, polite HTTP, download cache, pushdown helpers
+  datasets.py      # the runtime-downloaded datasets + the per-state scan base class
+  reference.py     # the bundled `states` table
+  people.py        # legislators / roles / committees from the Open States people repo
+  elections.py     # Klarner election returns, Shor-McCarty ideology
+  cache.py         # cache_info(), refresh_cache()
+  openstates_api.py  # os_* functions (Open States API v3, `openstates` secret)
 tests/             # pytest unit tests (in-process client)
 test/sql/          # sqllogictest files run through DuckDB
-test/mock_api/     # offline mock of the REST API used by tests
+test/mock_api/     # offline mock of Open States + dataset downloads (serves test/fixtures)
 examples/          # recipes: pushdown, caching, catalog tables, aggregates, COPY …
 ci/                # integration harness used by `make test-sql` and CI
 scripts/           # vgi_template.py (init / template-diff)

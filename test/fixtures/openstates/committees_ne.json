@@ -1,0 +1,52 @@
+{
+ "results": [
+  {
+   "id": "ocd-organization/7cd46649-f205-4598-9ee7-e55c93061e0c",
+   "name": "Agriculture",
+   "classification": "committee",
+   "parent_id": "ocd-organization/ne-legislature-synthetic",
+   "extras": {},
+   "memberships": [
+    {
+     "person_name": "Barry DeKay",
+     "role": "chair",
+     "person": {
+      "id": "ocd-person/01d5ca17-53a1-463a-b2f6-74fe24833c0f",
+      "name": "Barry DeKay",
+      "party": "Nonpartisan"
+     }
+    },
+    {
+     "person_name": "Teresa Ibach",
+     "role": "vice chair",
+     "person": {
+      "id": "ocd-person/374b6dc4-5b90-4028-814c-84895a293c84",
+      "name": "Teresa Ibach",
+      "party": "Nonpartisan"
+     }
+    }
+   ],
+   "links": [
+    {
+     "url": "https://nebraskalegislature.gov/committees/landing_pages/index.php?cid=1",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "id": "ocd-organization/36c7d5bf-b8f2-4da0-87df-7e7690d4cb35",
+   "name": "Appropriations",
+   "classification": "committee",
+   "parent_id": "ocd-organization/ne-legislature-synthetic",
+   "extras": {},
+   "memberships": [],
+   "links": []
+  }
+ ],
+ "pagination": {
+  "per_page": 20,
+  "page": 1,
+  "max_page": 1,
+  "total_items": 2
+ }
+}
