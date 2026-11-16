@@ -5,13 +5,13 @@ To add a function: write it (see ``greet.py`` / ``sequence.py`` /
 
 Run it:
 
-    vgi-starter-worker                      # stdio: what DuckDB launches by default
-    vgi-starter-worker --http --port 8000   # HTTP: for Docker / hosted deploys
-    vgi-starter-worker --help
+    vgi-us-statelegs-worker                      # stdio: what DuckDB launches by default
+    vgi-us-statelegs-worker --http --port 8000   # HTTP: for Docker / hosted deploys
+    vgi-us-statelegs-worker --help
 
 Attach it from DuckDB:
 
-    ATTACH 'starter' (TYPE vgi, LOCATION '/abs/path/to/.venv/bin/vgi-starter-worker');
+    ATTACH 'us_statelegs' (TYPE vgi, LOCATION '/abs/path/to/.venv/bin/vgi-us-statelegs-worker');
 """
 
 from __future__ import annotations
@@ -61,7 +61,7 @@ def _stamp_example_queries(functions: list[type[Any]]) -> list[dict[str, str]]:
 _ALL_EXAMPLES = _stamp_example_queries(FUNCTIONS)
 
 
-class StarterWorker(Worker):
+class UsStatelegsWorker(Worker):
     """The worker process: one catalog, one ``main`` schema."""
 
     catalog = Catalog(
@@ -75,7 +75,7 @@ class StarterWorker(Worker):
                 comment=SCHEMA_COMMENT,
                 functions=FUNCTIONS,
                 tags={
-                    "vgi.title": "Starter Functions",
+                    "vgi.title": "UsStatelegs Functions",
                     "domain": "examples",
                     "vgi.keywords": keywords_array("greeting, sequence, generator, rest api, pagination"),
                     "vgi.doc_llm": SCHEMA_DOC_LLM,
@@ -92,7 +92,7 @@ class StarterWorker(Worker):
 
 def main() -> None:
     """Console-script entry point: parse ``--http`` / ``--unix`` / logging flags and serve."""
-    StarterWorker.main()
+    UsStatelegsWorker.main()
 
 
 if __name__ == "__main__":

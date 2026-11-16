@@ -12,5 +12,8 @@
   "optional_files": [
     ".github/workflows/nightly.yml",
     ".github/dependabot.yml"
-  ]
+  ],
+  "name": "us_statelegs",
+  "repo": "your-org/vgi-us-statelegs",
+  "initialized": "2026-11-15"
 }

@@ -1,5 +1,5 @@
 [project]
-name = "vgi-starter-worker"
+name = "vgi-us-statelegs-worker"
 version = "0.1.0"
 description = "A VGI worker for DuckDB, generated from the Query.Farm VGI starter template."
 readme = "README.md"
@@ -13,7 +13,7 @@ dependencies = [
 ]
 
 [project.scripts]
-vgi-starter-worker = "starter_worker.worker:main"
+vgi-us-statelegs-worker = "us_statelegs_worker.worker:main"
 
 [dependency-groups]
 dev = [
@@ -31,7 +31,7 @@ requires = ["hatchling>=1.27"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/starter_worker"]
+packages = ["src/us_statelegs_worker"]
 
 [tool.ruff]
 line-length = 120
