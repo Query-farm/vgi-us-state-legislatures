@@ -1,6 +1,6 @@
 [project]
 name = "vgi-us-statelegs-worker"
-version = "0.1.0"
+version = "0.1.1"
 description = "US state legislatures in DuckDB: legislators, committees, election returns, ideology, bills and votes (VGI worker)."
 readme = "README.md"
 license = "0BSD"

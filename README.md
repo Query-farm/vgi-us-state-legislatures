@@ -46,7 +46,7 @@ INSTALL vgi FROM query_farm;
 LOAD vgi FROM query_farm;
 
 ATTACH 'us_statelegs' (TYPE vgi,
-  LOCATION 'uvx --from git+https://github.com/Query-farm/vgi-us-state-legislatures@v0.1.0 vgi-us-statelegs-worker');
+  LOCATION 'uvx --from git+https://github.com/Query-farm/vgi-us-state-legislatures@v0.1.1 vgi-us-statelegs-worker');
 
 SELECT chamber, party, count(*) AS members
 FROM us_statelegs.main.legislators(state := 'NC', current := true)
