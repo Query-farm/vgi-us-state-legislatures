@@ -57,9 +57,11 @@ def main() -> None:
         src,
         "klarner.tab",
         "klarner.tab",
-        lambda r: (r["sab"] == '"ne"' and r["year"] in ("2014", "2016"))
-        or (r["sab"] == '"vt"' and r["year"] == "2016")
-        or (r["sab"] == '"wi"' and r["year"] == "2016" and r["sen"] == "0"),
+        lambda r: (
+            (r["sab"] == '"ne"' and r["year"] in ("2014", "2016"))
+            or (r["sab"] == '"vt"' and r["year"] == "2016")
+            or (r["sab"] == '"wi"' and r["year"] == "2016" and r["sen"] == "0")
+        ),
     )
     tab_subset(src, "sm2023.tab", "shor_mccarty_individual.tab", lambda r: r["st"] in ('"NE"', '"VT"'))
     tab_subset(src, "smagg2023.tab", "shor_mccarty_aggregate.tab", lambda r: r["st"] in ('"NE"', '"VT"'))

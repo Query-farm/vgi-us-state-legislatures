@@ -198,7 +198,7 @@ def read_meta(settings: Settings, ds: Dataset) -> dict[str, Any]:
     try:
         loaded = json.loads(meta_path(settings, ds).read_text())
         return loaded if isinstance(loaded, dict) else {}
-    except (OSError, ValueError):
+    except OSError, ValueError:
         return {}
 
 

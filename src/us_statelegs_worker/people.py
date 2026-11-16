@@ -61,7 +61,7 @@ def _index(path: Path) -> tuple[Path, dict[str, list[tuple[str, int, int]]]]:
             _index_memo.clear()
             _index_memo[key] = index
             return plain, _index_memo[key]
-    except (OSError, ValueError, KeyError):
+    except OSError, ValueError, KeyError:
         pass
     tmp = plain.with_name(f"{plain.name}.{os.getpid()}.{threading.get_ident()}.tmp")
     with gzip.open(path, "rb") as src, open(tmp, "wb") as dst:
@@ -108,7 +108,7 @@ def _load_state(handle: Any, members: list[tuple[str, int, int]], json_path: Pat
     try:
         stored = json.loads(json_path.read_text())
         return {"people": [(d, bool(c)) for d, c in stored["people"]], "committees": stored["committees"]}
-    except (OSError, ValueError, KeyError):
+    except OSError, ValueError, KeyError:
         pass
     parsed: dict[str, list[Any]] = {"people": [], "committees": []}
     for kind, offset, size in members:
