@@ -39,6 +39,8 @@ District of Columbia is the other single-chamber body.
 
 **DuckDB 2.0:**
 
+vgi-us-state-legislatures 0.2.0 speaks VGI protocol 3.4, so it needs Haybarn 2.0.1 or newer (Haybarn 2.0.0 loads a 3.3 `vgi` extension that cannot attach it).
+
 ```sql
 SET allow_extension_repositories = 'allowed';
 CREATE EXTENSION REPOSITORY IF NOT EXISTS query_farm WITH PREFIX 'https://duckdb-extensions.query.farm';
@@ -46,7 +48,7 @@ INSTALL vgi FROM query_farm;
 LOAD vgi FROM query_farm;
 
 ATTACH 'us_statelegs' (TYPE vgi,
-  LOCATION 'uvx --from git+https://github.com/Query-farm/vgi-us-state-legislatures@v0.1.1 vgi-us-statelegs-worker');
+  LOCATION 'uvx --from git+https://github.com/Query-farm/vgi-us-state-legislatures@v0.2.0 vgi-us-statelegs-worker');
 
 SELECT chamber, party, count(*) AS members
 FROM us_statelegs.main.legislators(state := 'NC', current := true)
